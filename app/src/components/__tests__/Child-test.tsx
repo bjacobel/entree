@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Switch, Route } from 'wouter';
 
-import Child from '../Child';
+import Child from '../RecipeBox';
 import { render } from '../../testing/rtl';
 
 describe('child component', () => {

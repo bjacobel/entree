@@ -5,7 +5,7 @@ import { center, openSans } from '../stylesheets/shared.css';
 import { lightgrey } from '../stylesheets/colors.css';
 import StyledLink from './StyledLink';
 
-const Child = styled.h3`
+const Header = styled.h3`
   ${center}
   ${openSans}
   ${lightgrey}
@@ -16,7 +16,7 @@ export default () => {
   const params = useParams<{ id: string }>();
   return (
     <div>
-      <Child>{`received param: ${params.id}`}</Child>
+      <Header>{`recipe: ${params.id}`}</Header>
       <StyledLink to="/">Home</StyledLink>
     </div>
   );
