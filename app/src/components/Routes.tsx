@@ -5,22 +5,22 @@ import RecipeBox from './RecipeBox';
 import Recipe from './Recipe';
 import Error from './Error';
 import NotFound from './NotFound';
-import Auth from './Auth/RequireAuth';
-import Login from './Auth/Login';
+import RequireAuth from './auth/RequireAuth';
+import Login from './auth/Login';
 
 export default () => (
   <Switch>
     <Route component={Main} path="/" />
     <Route component={Login} path="/Login" />
     <Route path="/box">
-      <Auth>
+      <RequireAuth>
         <RecipeBox />
-      </Auth>
+      </RequireAuth>
     </Route>
     <Route path="/recipe/:id/:slug">
-      <Auth>
+      <RequireAuth>
         <Recipe />
-      </Auth>
+      </RequireAuth>
     </Route>
     <Route component={Error} path="/error" />
     <Route component={NotFound} path="*" />
