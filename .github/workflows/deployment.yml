@@ -1,0 +1,96 @@
+name: 'Deployment'
+on:
+  push:
+    branches:
+      - master
+concurrency:
+  group: ${{ github.ref }}-deployment
+  cancel-in-progress: true
+jobs:
+  build:
+    name: 'Build and deploy static site'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for CI to succeed
+        uses: lewagon/wait-on-check-action@master
+        with:
+          ref: ${{ github.ref }}
+          check-name: 'Lint/Test'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          wait-interval: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+      - name: 'Checkout'
+        uses: actions/checkout@master
+      - name: Cache node_modules
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+      - name: Install
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: yarn install --frozen-lockfile --ignore-scripts
+      - name: Build
+        run: yarn run build
+        env:
+          NODE_ENV: production
+          GITHUB_SHA: ${{ github.sha }}
+      - name: Grab config
+        id: config
+        run: |
+          echo "Region=$(yarn run --silent ts-node config Region)" >> $GITHUB_OUTPUT
+          echo "ProjectFQDomain=$(yarn run --silent ts-node config ProjectFQDomain)" >> $GITHUB_OUTPUT
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ steps.config.outputs.Region }}
+      - name: Verify bucket exists
+        run: if [ "$(yarn run --silent deploy-utils bucketExists)" = "false" ]; then exit 1; fi
+      - name: Upload dist to bucket
+        run: |
+          aws s3 sync app/dist s3://${{ steps.config.outputs.ProjectFQDomain }} \
+            --acl public-read \
+            --cache-control max-age=31536000
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: ./app/dist
+      - name: Invalidate CloudFront
+        run: yarn run deploy-utils invalidate "/index.html"
+  sentry:
+    name: 'Track Deploy In Sentry'
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+      - name: 'Checkout'
+        uses: actions/checkout@master
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+      - name: Cache node_modules
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+      - name: Grab config
+        id: config
+        run: |
+          echo "SentryOrg=$(yarn run --silent ts-node config SentryOrg)" >> $GITHUB_OUTPUT
+          echo "SentryProject=$(yarn run --silent ts-node config SentryProject)" >> $GITHUB_OUTPUT
+      - name: Notify Sentry of deploy
+        uses: getsentry/action-release@v1
+        with:
+          environment: production
+          sourcemaps: ./dist
+        env:
+          SENTRY_ORG: ${{ steps.config.outputs.SentryOrg }}
+          SENTRY_PROJECT: ${{ steps.config.outputs.SentryProject }}
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}

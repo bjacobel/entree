@@ -1,0 +1,25 @@
+{
+  "extends": ["config:base", ":preserveSemverRanges"],
+  "statusCheckVerify": true,
+  "ignoreDeps": ["precss"],
+  "automerge": true,
+  "automergeType": "branch",
+  "major": {
+    "automerge": false
+  },
+  "labels": ["dependencies"],
+  "packageRules": [
+    {
+      "packagePatterns": ["^eslint"],
+      "groupName": "ESLint packages"
+    },
+    {
+      "packagePatterns": ["^stylelint"],
+      "groupName": "Stylelint packages"
+    },
+    {
+      "packagePatterns": ["^@linaria", "^@wyw-in-js"],
+      "groupName": "Linaria packages"
+    }
+  ]
+}

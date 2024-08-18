@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`child component matches snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <h3>
+      received param: foo
+    </h3>
+    <a
+      href="/"
+    >
+      Home
+    </a>
+  </div>
+</DocumentFragment>
+`;
