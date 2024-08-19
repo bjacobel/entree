@@ -115,7 +115,7 @@ export default (env: Record<string, unknown> = {}, { mode }: { mode?: string } =
       new HtmlWebpackPlugin({
         template: path.join(__dirname, './src/index.html.tsx'),
         favicon: path.join(__dirname, './src/assets/images/favicon.ico'),
-        title: config.ProjectName,
+        title: 'Entrée',
         inject: true,
       }),
       new MiniCssExtractPlugin({

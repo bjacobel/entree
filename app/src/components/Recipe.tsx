@@ -13,10 +13,11 @@ const Header = styled.h3`
 `;
 
 export default () => {
-  const params = useParams<{ id: string }>();
+  const { id } = useParams<{ id: string }>();
+
   return (
     <div>
-      <Header>{`recipe: ${params.id}`}</Header>
+      <Header>{`recipe: ${id}`}</Header>
       <StyledLink to="/">Home</StyledLink>
     </div>
   );
