@@ -7,6 +7,7 @@ const mockLogErrorsConstant = jest.fn().mockReturnValue(false);
 jest.mock('../../../services/errors');
 
 jest.mock('../../../constants', () => ({
+  ...jest.requireActual('../../../constants'),
   get LOG_ERRORS() {
     return mockLogErrorsConstant();
   },
