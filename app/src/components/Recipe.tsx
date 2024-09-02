@@ -1,24 +1,44 @@
-import { styled } from '@linaria/react';
+import { useMemo } from 'react';
+import { useSuspenseQuery } from '@apollo/client';
 import { useParams } from 'wouter';
 
-import { center, openSans } from '../stylesheets/shared.css';
-import { lightgrey } from '../stylesheets/colors.css';
-import StyledLink from './StyledLink';
+import { graphql } from '../generated/gql';
+import NotFound from './NotFound';
 
-const Header = styled.h3`
-  ${center}
-  ${openSans}
-  ${lightgrey}
-  font-style: italic;
-`;
+const GET_RECIPE = graphql(/* GraphQL */ `
+  query Recipe($id: BigInt) {
+    recipeCollection(filter: { id: { eq: $id } }) {
+      edges {
+        node {
+          title
+          steps
+          ingredients
+          created_at
+          updated_at
+          photo_url
+          url
+          created_by
+        }
+      }
+    }
+  }
+`);
 
 export default () => {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams<{ id: string }>(); // slug isn't actually used, it's just for pretty urls
+  const { data } = useSuspenseQuery(GET_RECIPE, {
+    variables: {
+      id,
+    },
+  });
+
+  const recipe = useMemo(() => data.recipeCollection?.edges[0]?.node, [data]);
+
+  if (!recipe) return NotFound;
 
   return (
     <div>
-      <Header>{`recipe: ${id}`}</Header>
-      <StyledLink to="/">Home</StyledLink>
+      <h2>{recipe.title}</h2>
     </div>
   );
 };

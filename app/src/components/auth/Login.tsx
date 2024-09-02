@@ -5,6 +5,7 @@ import { useLocation } from 'wouter';
 
 import { useSupabase } from '../../contexts/Supabase';
 import useSupabaseSession from '../../hooks/useSupabaseSession';
+import Loading from '../Loading';
 
 export default () => {
   const supabase = useSupabase();
@@ -17,7 +18,7 @@ export default () => {
     }
   }, [session, loading, setLocation]);
 
-  if (!supabase || loading) return 'Loading...';
+  if (!supabase || loading) return <Loading fullscreen />;
 
   return <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} providers={[]} />;
 };

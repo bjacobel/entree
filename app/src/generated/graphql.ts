@@ -685,6 +685,31 @@ export type Recipe_Box_OwnerUpdateResponse = {
   records: Array<Recipe_Box_Owner>;
 };
 
+export type RecipeQueryVariables = Exact<{
+  id?: InputMaybe<Scalars['BigInt']['input']>;
+}>;
+
+export type RecipeQuery = {
+  __typename: 'Query';
+  recipeCollection?: {
+    __typename: 'recipeConnection';
+    edges: Array<{
+      __typename: 'recipeEdge';
+      node: {
+        __typename: 'recipe';
+        title: string;
+        steps: Array<string | null>;
+        ingredients: Array<string | null>;
+        created_at: string;
+        updated_at?: string | null;
+        photo_url?: string | null;
+        url?: string | null;
+        created_by?: string | null;
+      };
+    }>;
+  } | null;
+};
+
 export type MyRecipesQueryVariables = Exact<{
   cursor?: InputMaybe<Scalars['Cursor']['input']>;
   user: Scalars['UUID']['input'];
@@ -703,7 +728,18 @@ export type MyRecipesQuery = {
           recipeCollection?: {
             __typename: 'recipeConnection';
             pageInfo: { __typename: 'PageInfo'; endCursor?: string | null; hasNextPage: boolean };
-            edges: Array<{ __typename: 'recipeEdge'; node: { __typename: 'recipe'; nodeId: string; title: string } }>;
+            edges: Array<{
+              __typename: 'recipeEdge';
+              node: {
+                __typename: 'recipe';
+                id: string;
+                nodeId: string;
+                title: string;
+                created_at: string;
+                updated_at?: string | null;
+                photo_url?: string | null;
+              };
+            }>;
           } | null;
         } | null;
       };
@@ -711,6 +747,92 @@ export type MyRecipesQuery = {
   } | null;
 };
 
+export const RecipeDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'query',
+      name: { kind: 'Name', value: 'Recipe' },
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: { kind: 'Variable', name: { kind: 'Name', value: 'id' } },
+          type: { kind: 'NamedType', name: { kind: 'Name', value: 'BigInt' } },
+        },
+      ],
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: '__typename' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'recipeCollection' },
+            arguments: [
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'filter' },
+                value: {
+                  kind: 'ObjectValue',
+                  fields: [
+                    {
+                      kind: 'ObjectField',
+                      name: { kind: 'Name', value: 'id' },
+                      value: {
+                        kind: 'ObjectValue',
+                        fields: [
+                          {
+                            kind: 'ObjectField',
+                            name: { kind: 'Name', value: 'eq' },
+                            value: { kind: 'Variable', name: { kind: 'Name', value: 'id' } },
+                          },
+                        ],
+                      },
+                    },
+                  ],
+                },
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: '__typename' } },
+                {
+                  kind: 'Field',
+                  name: { kind: 'Name', value: 'edges' },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      { kind: 'Field', name: { kind: 'Name', value: '__typename' } },
+                      {
+                        kind: 'Field',
+                        name: { kind: 'Name', value: 'node' },
+                        selectionSet: {
+                          kind: 'SelectionSet',
+                          selections: [
+                            { kind: 'Field', name: { kind: 'Name', value: '__typename' } },
+                            { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+                            { kind: 'Field', name: { kind: 'Name', value: 'steps' } },
+                            { kind: 'Field', name: { kind: 'Name', value: 'ingredients' } },
+                            { kind: 'Field', name: { kind: 'Name', value: 'created_at' } },
+                            { kind: 'Field', name: { kind: 'Name', value: 'updated_at' } },
+                            { kind: 'Field', name: { kind: 'Name', value: 'photo_url' } },
+                            { kind: 'Field', name: { kind: 'Name', value: 'url' } },
+                            { kind: 'Field', name: { kind: 'Name', value: 'created_by' } },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<RecipeQuery, RecipeQueryVariables>;
 export const MyRecipesDocument = {
   kind: 'Document',
   definitions: [
@@ -832,8 +954,12 @@ export const MyRecipesDocument = {
                                                   kind: 'SelectionSet',
                                                   selections: [
                                                     { kind: 'Field', name: { kind: 'Name', value: '__typename' } },
+                                                    { kind: 'Field', name: { kind: 'Name', value: 'id' } },
                                                     { kind: 'Field', name: { kind: 'Name', value: 'nodeId' } },
                                                     { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+                                                    { kind: 'Field', name: { kind: 'Name', value: 'created_at' } },
+                                                    { kind: 'Field', name: { kind: 'Name', value: 'updated_at' } },
+                                                    { kind: 'Field', name: { kind: 'Name', value: 'photo_url' } },
                                                   ],
                                                 },
                                               },

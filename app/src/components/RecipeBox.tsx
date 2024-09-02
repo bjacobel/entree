@@ -1,9 +1,10 @@
+import { useMemo } from 'react';
 import { styled } from '@linaria/react';
 import { useSuspenseQuery, skipToken } from '@apollo/client';
+import { Link } from 'wouter';
 
 import { center, openSans } from '../stylesheets/shared.css';
 import { lightgrey } from '../stylesheets/colors.css';
-import StyledLink from './StyledLink';
 import { graphql } from '../generated/gql';
 import useSupabaseSession from '../hooks/useSupabaseSession';
 
@@ -27,8 +28,12 @@ const GET_MY_RECIPE_BOX_RECIPES = graphql(/* GraphQL */ `
               }
               edges {
                 node {
+                  id
                   nodeId
                   title
+                  created_at
+                  updated_at
+                  photo_url
                 }
               }
             }
@@ -40,7 +45,7 @@ const GET_MY_RECIPE_BOX_RECIPES = graphql(/* GraphQL */ `
 `);
 
 export default () => {
-  const { session, loading: sessionLoading } = useSupabaseSession();
+  const { session } = useSupabaseSession();
   const { data } = useSuspenseQuery(
     GET_MY_RECIPE_BOX_RECIPES,
     session
@@ -50,13 +55,24 @@ export default () => {
       : skipToken,
   );
 
-  if (sessionLoading) return 'Loading...';
+  const recipes = useMemo(
+    () =>
+      data?.recipe_box_ownerCollection?.edges.flatMap(
+        box => box.node.recipe_box?.recipeCollection?.edges.map(({ node }) => node) || [],
+      ) || [],
+    [data],
+  );
 
   return (
     <div>
-      {JSON.stringify(data, null, 2)}
       <Header>Welcome to your recipe box</Header>
-      <StyledLink to="/">Home</StyledLink>
+      <ol>
+        {recipes.map(recipe => (
+          <li key={recipe.nodeId}>
+            <Link href={`/recipe/${recipe.id}/todo-generate-slug-here`}>{recipe.title}</Link>
+          </li>
+        ))}
+      </ol>
     </div>
   );
 };

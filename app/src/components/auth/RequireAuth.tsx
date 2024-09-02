@@ -2,6 +2,7 @@ import { ReactNode, useEffect } from 'react';
 import { useLocation } from 'wouter';
 
 import useSupabaseSession from '../../hooks/useSupabaseSession';
+import Loading from '../Loading';
 
 export default ({ children }: { children: ReactNode }) => {
   const { loading, session } = useSupabaseSession();
@@ -13,7 +14,7 @@ export default ({ children }: { children: ReactNode }) => {
     }
   }, [session, loading, setLocation]);
 
-  if (loading) return 'Loading...';
+  if (loading) return <Loading fullscreen />;
 
   return children;
 };
