@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { styled } from '@linaria/react';
 import { useSuspenseQuery, skipToken } from '@apollo/client';
 import { Link } from 'wouter';
+import slugify from '@sindresorhus/slugify';
 
 import { center, openSans } from '../stylesheets/shared.css';
 import { lightgrey } from '../stylesheets/colors.css';
@@ -28,12 +29,14 @@ const GET_MY_RECIPE_BOX_RECIPES = graphql(/* GraphQL */ `
               }
               edges {
                 node {
-                  id
                   nodeId
-                  title
-                  created_at
-                  updated_at
-                  photo_url
+                  ... on recipe {
+                    id
+                    title
+                    created_at
+                    updated_at
+                    photo_url
+                  }
                 }
               }
             }
@@ -63,13 +66,15 @@ export default () => {
     [data],
   );
 
+  const slugs = useMemo(() => new Map(recipes.map(recipe => [recipe.id, slugify(recipe.title)])), [recipes]);
+
   return (
     <div>
       <Header>Welcome to your recipe box</Header>
       <ol>
         {recipes.map(recipe => (
           <li key={recipe.nodeId}>
-            <Link href={`/recipe/${recipe.id}/todo-generate-slug-here`}>{recipe.title}</Link>
+            <Link href={`/recipe/${recipe.id}/${slugs.get(recipe.id)}`}>{recipe.title}</Link>
           </li>
         ))}
       </ol>

@@ -733,11 +733,11 @@ export type MyRecipesQuery = {
               node: {
                 __typename: 'recipe';
                 id: string;
-                nodeId: string;
                 title: string;
                 created_at: string;
                 updated_at?: string | null;
                 photo_url?: string | null;
+                nodeId: string;
               };
             }>;
           } | null;
@@ -811,14 +811,24 @@ export const RecipeDocument = {
                           kind: 'SelectionSet',
                           selections: [
                             { kind: 'Field', name: { kind: 'Name', value: '__typename' } },
-                            { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-                            { kind: 'Field', name: { kind: 'Name', value: 'steps' } },
-                            { kind: 'Field', name: { kind: 'Name', value: 'ingredients' } },
-                            { kind: 'Field', name: { kind: 'Name', value: 'created_at' } },
-                            { kind: 'Field', name: { kind: 'Name', value: 'updated_at' } },
-                            { kind: 'Field', name: { kind: 'Name', value: 'photo_url' } },
-                            { kind: 'Field', name: { kind: 'Name', value: 'url' } },
-                            { kind: 'Field', name: { kind: 'Name', value: 'created_by' } },
+                            {
+                              kind: 'InlineFragment',
+                              typeCondition: { kind: 'NamedType', name: { kind: 'Name', value: 'recipe' } },
+                              selectionSet: {
+                                kind: 'SelectionSet',
+                                selections: [
+                                  { kind: 'Field', name: { kind: 'Name', value: '__typename' } },
+                                  { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+                                  { kind: 'Field', name: { kind: 'Name', value: 'steps' } },
+                                  { kind: 'Field', name: { kind: 'Name', value: 'ingredients' } },
+                                  { kind: 'Field', name: { kind: 'Name', value: 'created_at' } },
+                                  { kind: 'Field', name: { kind: 'Name', value: 'updated_at' } },
+                                  { kind: 'Field', name: { kind: 'Name', value: 'photo_url' } },
+                                  { kind: 'Field', name: { kind: 'Name', value: 'url' } },
+                                  { kind: 'Field', name: { kind: 'Name', value: 'created_by' } },
+                                ],
+                              },
+                            },
                           ],
                         },
                       },
@@ -954,12 +964,34 @@ export const MyRecipesDocument = {
                                                   kind: 'SelectionSet',
                                                   selections: [
                                                     { kind: 'Field', name: { kind: 'Name', value: '__typename' } },
-                                                    { kind: 'Field', name: { kind: 'Name', value: 'id' } },
                                                     { kind: 'Field', name: { kind: 'Name', value: 'nodeId' } },
-                                                    { kind: 'Field', name: { kind: 'Name', value: 'title' } },
-                                                    { kind: 'Field', name: { kind: 'Name', value: 'created_at' } },
-                                                    { kind: 'Field', name: { kind: 'Name', value: 'updated_at' } },
-                                                    { kind: 'Field', name: { kind: 'Name', value: 'photo_url' } },
+                                                    {
+                                                      kind: 'InlineFragment',
+                                                      typeCondition: {
+                                                        kind: 'NamedType',
+                                                        name: { kind: 'Name', value: 'recipe' },
+                                                      },
+                                                      selectionSet: {
+                                                        kind: 'SelectionSet',
+                                                        selections: [
+                                                          {
+                                                            kind: 'Field',
+                                                            name: { kind: 'Name', value: '__typename' },
+                                                          },
+                                                          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                                                          { kind: 'Field', name: { kind: 'Name', value: 'title' } },
+                                                          {
+                                                            kind: 'Field',
+                                                            name: { kind: 'Name', value: 'created_at' },
+                                                          },
+                                                          {
+                                                            kind: 'Field',
+                                                            name: { kind: 'Name', value: 'updated_at' },
+                                                          },
+                                                          { kind: 'Field', name: { kind: 'Name', value: 'photo_url' } },
+                                                        ],
+                                                      },
+                                                    },
                                                   ],
                                                 },
                                               },

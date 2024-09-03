@@ -17,6 +17,7 @@ import CommonMeta from './components/CommonMeta';
 import Loading from './components/Loading';
 import Supabase from './contexts/Supabase';
 import { createSupabaseApolloClient } from './services/SupabaseApolloClient';
+import MantineThemeProvider from './components/MantineThemeProvider';
 
 sentrySetup();
 const supabase = createClient(SUPABASE_PROJECT_URL, SUPABASE_ANON_KEY);
@@ -30,14 +31,16 @@ const render = () => {
       <HelmetProvider>
         <Supabase.Provider value={supabase}>
           <ApolloProvider client={apolloSupabaseClient}>
-            <ErrorBoundary>
-              <PWAUpdater />
-              <CommonMeta />
-              <Analytics />
-              <Suspense fallback={<Loading fullscreen />}>
-                <Routes />
-              </Suspense>
-            </ErrorBoundary>
+            <MantineThemeProvider>
+              <ErrorBoundary>
+                <PWAUpdater />
+                <CommonMeta />
+                <Analytics />
+                <Suspense fallback={<Loading fullscreen />}>
+                  <Routes />
+                </Suspense>
+              </ErrorBoundary>
+            </MantineThemeProvider>
           </ApolloProvider>
         </Supabase.Provider>
       </HelmetProvider>

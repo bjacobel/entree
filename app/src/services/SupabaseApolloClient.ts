@@ -13,7 +13,7 @@ const cache = new InMemoryCache({
 
     return defaultDataIdFromObject(responseObject);
   },
-  possibleTypes: { Node: ['Recipe', 'RecipeBox', 'RecipeBoxOwner'] }, // optional, but useful to specify supertype-subtype relationships
+  possibleTypes: { Node: ['recipe', 'recipe_box', 'recipe_box_owner'] }, // optional, but useful to specify supertype-subtype relationships
   typePolicies: {
     Query: {
       fields: {

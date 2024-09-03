@@ -1,5 +1,5 @@
 export const blue = {
-  color: '#254dc7',
+  color: '#226bba',
 };
 
 export const lightgrey = {

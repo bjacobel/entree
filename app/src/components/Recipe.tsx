@@ -10,14 +10,16 @@ const GET_RECIPE = graphql(/* GraphQL */ `
     recipeCollection(filter: { id: { eq: $id } }) {
       edges {
         node {
-          title
-          steps
-          ingredients
-          created_at
-          updated_at
-          photo_url
-          url
-          created_by
+          ... on recipe {
+            title
+            steps
+            ingredients
+            created_at
+            updated_at
+            photo_url
+            url
+            created_by
+          }
         }
       }
     }
@@ -34,7 +36,7 @@ export default () => {
 
   const recipe = useMemo(() => data.recipeCollection?.edges[0]?.node, [data]);
 
-  if (!recipe) return NotFound;
+  if (!recipe) return <NotFound />;
 
   return (
     <div>

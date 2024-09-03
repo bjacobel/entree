@@ -7,21 +7,22 @@ import Error from './Error';
 import NotFound from './NotFound';
 import RequireAuth from './auth/RequireAuth';
 import Login from './auth/Login';
+import PrimaryLayout from './PrimaryLayout';
 
 export default () => (
   <Switch>
     <Route component={Main} path="/" />
     <Route component={Login} path="/Login" />
-    <Route path="/box">
-      <RequireAuth>
-        <RecipeBox />
-      </RequireAuth>
-    </Route>
-    <Route path="/recipe/:id/:slug">
-      <RequireAuth>
-        <Recipe />
-      </RequireAuth>
-    </Route>
+    <RequireAuth>
+      <PrimaryLayout>
+        <Route path="/box">
+          <RecipeBox />
+        </Route>
+        <Route path="/recipe/:id/:slug">
+          <Recipe />
+        </Route>
+      </PrimaryLayout>
+    </RequireAuth>
     <Route component={Error} path="/error" />
     <Route component={NotFound} path="*" />
   </Switch>
