@@ -1,4 +1,5 @@
 import { Switch, Route } from 'wouter';
+import { Suspense } from 'react';
 
 import Main from './Main';
 import RecipeBox from './RecipeBox';
@@ -8,6 +9,7 @@ import NotFound from './NotFound';
 import RequireAuth from './auth/RequireAuth';
 import Login from './auth/Login';
 import PrimaryLayout from './PrimaryLayout';
+import Loading from './Loading';
 
 export default () => (
   <Switch>
@@ -16,10 +18,14 @@ export default () => (
     <RequireAuth>
       <PrimaryLayout>
         <Route path="/box">
-          <RecipeBox />
+          <Suspense fallback={<Loading />}>
+            <RecipeBox />
+          </Suspense>
         </Route>
         <Route path="/recipe/:id/:slug">
-          <Recipe />
+          <Suspense fallback={<Loading />}>
+            <Recipe />
+          </Suspense>
         </Route>
       </PrimaryLayout>
     </RequireAuth>

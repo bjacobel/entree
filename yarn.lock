@@ -10311,6 +10311,11 @@ nullthrows@^1.1.1:
   resolved "https://registry.yarnpkg.com/nullthrows/-/nullthrows-1.1.1.tgz#7818258843856ae971eae4208ad7d7eb19a431b1"
   integrity sha512-2vPPEi+Z7WqML2jZYddDIfy5Dqb0r2fze2zTxNNknZaFpVHU3mFB3R+DWeJWGVx0ecvttSGlJTI+WG+8Z4cDWw==
 
+numeric-quantity@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/numeric-quantity/-/numeric-quantity-2.0.1.tgz#923ec49c807aabb0380c7d098fa48ca7236c8e36"
+  integrity sha512-+Bt2X6YxM5bg8XIBl76NVeG2eL0Y5VQRoyz6GLYrZXW/TDh7We+tGeX4/WZWhaVGOg5ZjNBEOZt9a86slMhOJA==
+
 nwsapi@^2.2.2:
   version "2.2.9"
   resolved "https://registry.yarnpkg.com/nwsapi/-/nwsapi-2.2.9.tgz#7f3303218372db2e9f27c27766bcfc59ae7e61c6"
@@ -10563,6 +10568,13 @@ parse-filepath@^1.0.2:
     is-absolute "^1.0.0"
     map-cache "^0.2.0"
     path-root "^0.1.1"
+
+parse-ingredient@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/parse-ingredient/-/parse-ingredient-1.2.1.tgz#1a79c61b1e078ae16c672b09a5d3bb4b5d7d54af"
+  integrity sha512-9yRkOYTNp2hTBeb1wD3Qq5B0QAYAPkRNXHMpLUr0N9w56wFD0E5gRIOl+dc7JYsZ3vR7au+0i9xCpAKqRu75GQ==
+  dependencies:
+    numeric-quantity "^2.0.1"
 
 parse-json@^5.0.0, parse-json@^5.2.0:
   version "5.2.0"

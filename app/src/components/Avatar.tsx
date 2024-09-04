@@ -25,14 +25,33 @@ const sha256 = async (message: string) => {
 
 const Avatar = () => {
   const [opened, setOpened] = useState(false);
-
   const { session } = useSupabaseSession();
-  const [sha, setSha] = useState<string | undefined>();
+  const [avatarUrl, setAvatarUrl] = useState<string | undefined>();
+
   useEffect(() => {
-    if (session && session.user.email) {
-      sha256(session.user.email).then(setSha);
+    let mounted = true;
+    const controller = new AbortController();
+    if (session && session.user.email && mounted) {
+      sha256(session.user.email).then(sha =>
+        fetch(`https://gravatar.com/avatar/${sha}?d=404`, { method: 'head', signal: controller.signal })
+          .then(response => {
+            if (response.status < 400) {
+              setAvatarUrl(response.url);
+            }
+          })
+          .catch(() => {
+            // do nothing
+          }),
+      );
     }
-  }, [setSha, session]);
+    return () => {
+      if (mounted) {
+        mounted = false;
+        controller.abort();
+      }
+    };
+  }, [setAvatarUrl, session]);
+
   const initials = useMemo(() => {
     if (session?.user.email) return session.user.email.slice(0, 2);
     return '';
@@ -50,8 +69,8 @@ const Avatar = () => {
       onChange={setOpened}
     >
       <Menu.Target>
-        {sha ? (
-          <StyledAvatar src={`https://gravatar.com/avatar/${sha}`} radius="xl" />
+        {avatarUrl ? (
+          <StyledAvatar src={avatarUrl} radius="xl" />
         ) : (
           <StyledAvatar color={blue.color} radius="xl">
             {initials}

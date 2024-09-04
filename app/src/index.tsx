@@ -1,6 +1,6 @@
 /* eslint-disable import/no-import-module-exports */
 
-import { StrictMode, Suspense } from 'react';
+import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createClient } from '@supabase/supabase-js';
 import { HelmetProvider } from 'react-helmet-async';
@@ -14,7 +14,6 @@ import { register } from './utils/sw-loader';
 import PWAUpdater from './components/PWAUpdater';
 import ErrorBoundary from './components/errors/ErrorBoundary';
 import CommonMeta from './components/CommonMeta';
-import Loading from './components/Loading';
 import Supabase from './contexts/Supabase';
 import { createSupabaseApolloClient } from './services/SupabaseApolloClient';
 import MantineThemeProvider from './components/MantineThemeProvider';
@@ -36,9 +35,7 @@ const render = () => {
                 <PWAUpdater />
                 <CommonMeta />
                 <Analytics />
-                <Suspense fallback={<Loading fullscreen />}>
-                  <Routes />
-                </Suspense>
+                <Routes />
               </ErrorBoundary>
             </MantineThemeProvider>
           </ApolloProvider>

@@ -1,9 +1,10 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { useSuspenseQuery } from '@apollo/client';
 import { useParams } from 'wouter';
 
 import { graphql } from '../generated/gql';
 import NotFound from './NotFound';
+import Ingredients from './Ingredients';
 
 const GET_RECIPE = graphql(/* GraphQL */ `
   query Recipe($id: BigInt) {
@@ -33,6 +34,7 @@ export default () => {
       id,
     },
   });
+  const [recipeScale, setRecipeScale] = useState(1.0);
 
   const recipe = useMemo(() => data.recipeCollection?.edges[0]?.node, [data]);
 
@@ -41,6 +43,12 @@ export default () => {
   return (
     <div>
       <h2>{recipe.title}</h2>
+      <Ingredients ingredients={recipe.ingredients} scale={recipeScale} />
+      <ol>
+        {recipe.steps.map(step => (
+          <li>{step}</li>
+        ))}
+      </ol>
     </div>
   );
 };
