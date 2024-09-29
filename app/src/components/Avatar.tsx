@@ -31,7 +31,7 @@ const Avatar = () => {
   useEffect(() => {
     let mounted = true;
     const controller = new AbortController();
-    if (session && session.user.email && mounted) {
+    if (!!session?.user.email && mounted && !avatarUrl) {
       sha256(session.user.email).then(sha =>
         fetch(`https://gravatar.com/avatar/${sha}?d=404`, { method: 'head', signal: controller.signal })
           .then(response => {
@@ -50,7 +50,7 @@ const Avatar = () => {
         controller.abort();
       }
     };
-  }, [setAvatarUrl, session]);
+  }, [setAvatarUrl, session?.user.email, avatarUrl]);
 
   const initials = useMemo(() => {
     if (session?.user.email) return session.user.email.slice(0, 2);

@@ -43,10 +43,11 @@ export default () => {
   return (
     <div>
       <h2>{recipe.title}</h2>
-      <Ingredients ingredients={recipe.ingredients} scale={recipeScale} />
+      <Ingredients ingredients={recipe.ingredients} scale={recipeScale} setScale={setRecipeScale} />
+      <h3>Instructions</h3>
       <ol>
         {recipe.steps.map(step => (
-          <li>{step}</li>
+          <li key={step}>{step}</li>
         ))}
       </ol>
     </div>
