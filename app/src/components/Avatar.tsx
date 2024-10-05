@@ -6,6 +6,7 @@ import { Avatar as MantineAvatar, Menu } from '@mantine/core';
 import useSupabaseSession from '../hooks/useSupabaseSession';
 import { blue } from '../stylesheets/colors.css';
 import { shadow } from '../stylesheets/shared.css';
+import { Link } from 'wouter';
 
 const StyledAvatar = styled(MantineAvatar)`
   ${shadow}
@@ -79,6 +80,9 @@ const Avatar = () => {
       </Menu.Target>
       <Menu.Dropdown>
         <Menu.Item>Account</Menu.Item>
+        <Menu.Item component={Link} href="/add">
+          Add recipe
+        </Menu.Item>
         <Menu.Divider />
         <Menu.Item color="red">Log out</Menu.Item>
       </Menu.Dropdown>
