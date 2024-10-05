@@ -2,3 +2,8 @@ coverage
 dist
 node_modules
 .env
+# Supabase
+supabase/.env.local
+supabase/.branches
+supabase/.temp
+supabase/.env

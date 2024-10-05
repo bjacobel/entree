@@ -10,6 +10,7 @@ import RequireAuth from './auth/RequireAuth';
 import Login from './auth/Login';
 import PrimaryLayout from './PrimaryLayout';
 import Loading from './Loading';
+import AddRecipe from './AddRecipe';
 
 export default () => (
   <Switch>
@@ -20,6 +21,11 @@ export default () => (
         <Route path="/box">
           <Suspense fallback={<Loading />}>
             <RecipeBox />
+          </Suspense>
+        </Route>
+        <Route path="/add">
+          <Suspense fallback={<Loading />}>
+            <AddRecipe />
           </Suspense>
         </Route>
         <Route path="/recipe/:id/:slug">

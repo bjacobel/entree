@@ -1,9 +1,15 @@
-import { ApolloClient, InMemoryCache, createHttpLink, defaultDataIdFromObject } from '@apollo/client';
+import { ApolloClient, createHttpLink, defaultDataIdFromObject, InMemoryCache } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import { relayStylePagination } from '@apollo/client/utilities';
 import { SupabaseClient } from '@supabase/supabase-js';
 
-import { SUPABASE_ANON_KEY, SUPABASE_PROJECT_URL } from '../constants';
+import {
+  IS_PROD,
+  SUPABASE_ANON_KEY,
+  SUPABASE_LOCAL_ANON_KEY,
+  SUPABASE_LOCAL_PROJECT_URL,
+  SUPABASE_PROJECT_URL,
+} from '../constants';
 
 const cache = new InMemoryCache({
   dataIdFromObject(responseObject) {
@@ -33,7 +39,7 @@ const cache = new InMemoryCache({
 });
 
 const httpLink = createHttpLink({
-  uri: `${SUPABASE_PROJECT_URL}/graphql/v1`,
+  uri: `${IS_PROD ? SUPABASE_PROJECT_URL : SUPABASE_LOCAL_PROJECT_URL}/graphql/v1`,
 });
 
 const authLink = (supabase: SupabaseClient) =>
@@ -44,7 +50,7 @@ const authLink = (supabase: SupabaseClient) =>
       headers: {
         ...headers,
         Authorization: token ? `Bearer ${token}` : '',
-        apikey: SUPABASE_ANON_KEY,
+        apikey: IS_PROD ? SUPABASE_ANON_KEY : SUPABASE_LOCAL_ANON_KEY,
       },
     };
   });
