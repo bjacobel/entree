@@ -47,3 +47,13 @@ Once it's reached the `CREATE_COMPLETE` status:
 
 - all the developers of all the awesome code and systems entree is built on
 - [Simon Mettler](https://thenounproject.com/search/?q=rocket&i=113198) from the [Noun Project](https://thenounproject.com/search/?q=rocket&i=113198)
+
+---
+
+### Seed local DB from remote DB
+
+```
+supabase link && \
+/opt/homebrew/opt/libpq/bin/pg_dump 'postgresql://postgres.xqtjushglhfclyrligot:[DATABASE_PASSWORD]@aws-0-us-east-1.pooler.supabase.com:6543/postgres' --data-only -t auth.users -t public.recipe -t public.recipe_box -t public.recipe_box_owner --inserts -f supabase/seed.sql && \
+supabase db reset
+```
