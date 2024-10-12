@@ -1,0 +1,1257 @@
+{
+  "aggregateLikes": 0,
+  "analyzedInstructions": [
+    {
+      "name": "",
+      "steps": [
+        {
+          "equipment": [
+            {
+              "id": 404667,
+              "image": "https://spoonacular.com/cdn/equipment_100x100/dutch-oven.jpg",
+              "localizedName": "dutch oven",
+              "name": "dutch oven"
+            }
+          ],
+          "ingredients": [
+            {
+              "id": 2036,
+              "image": "rosemary.jpg",
+              "localizedName": "rosemary",
+              "name": "rosemary"
+            },
+            {
+              "id": 10123,
+              "image": "https://spoonacular.com/cdn/ingredients_100x100/raw-bacon.png",
+              "localizedName": "bacon",
+              "name": "bacon"
+            }
+          ],
+          "length": {
+            "number": 5,
+            "unit": "minutes"
+          },
+          "number": 1,
+          "step": "Cook the bacon in a large dutch oven over medium heat until crisp, about 5 minutes. During the last minute of cooking, add the rosemary."
+        },
+        {
+          "equipment": [],
+          "ingredients": [
+            {
+              "id": 4609,
+              "image": "raw-bacon.png",
+              "localizedName": "bacon drippings",
+              "name": "bacon drippings"
+            },
+            {
+              "id": 10123,
+              "image": "https://spoonacular.com/cdn/ingredients_100x100/raw-bacon.png",
+              "localizedName": "bacon",
+              "name": "bacon"
+            }
+          ],
+          "number": 2,
+          "step": "Remove the bacon. If there's excess bacon grease, drain off all but 1 tablespoon. "
+        },
+        {
+          "equipment": [],
+          "ingredients": [
+            {
+              "id": 11282,
+              "image": "brown-onion.png",
+              "localizedName": "onion",
+              "name": "onion"
+            }
+          ],
+          "length": {
+            "number": 5,
+            "unit": "minutes"
+          },
+          "number": 3,
+          "step": "Add the onion and cook 5 minutes, until golden."
+        },
+        {
+          "equipment": [],
+          "ingredients": [
+            {
+              "id": 1032009,
+              "image": "red-pepper-flakes.jpg",
+              "localizedName": "red pepper flakes",
+              "name": "red pepper flakes"
+            },
+            {
+              "id": 1102047,
+              "image": "salt-and-pepper.jpg",
+              "localizedName": "salt and pepper",
+              "name": "salt and pepper"
+            },
+            {
+              "id": 11124,
+              "image": "sliced-carrot.png",
+              "localizedName": "carrot",
+              "name": "carrot"
+            },
+            {
+              "id": 11143,
+              "image": "celery.jpg",
+              "localizedName": "celery",
+              "name": "celery"
+            },
+            {
+              "id": 11957,
+              "image": "fennel.png",
+              "localizedName": "fennel",
+              "name": "fennel"
+            },
+            {
+              "id": 11215,
+              "image": "garlic.png",
+              "localizedName": "garlic",
+              "name": "garlic"
+            },
+            {
+              "id": 2044,
+              "image": "basil.jpg",
+              "localizedName": "basil",
+              "name": "basil"
+            },
+            {
+              "id": 2049,
+              "image": "thyme.jpg",
+              "localizedName": "thyme",
+              "name": "thyme"
+            }
+          ],
+          "length": {
+            "number": 5,
+            "unit": "minutes"
+          },
+          "number": 4,
+          "step": "Add the carrots, celery, garlic, thyme, basil, fennel, crushed red pepper, and a pinch each of salt and pepper. Cook another 5 minutes, until very fragrant."
+        },
+        {
+          "equipment": [],
+          "ingredients": [
+            {
+              "id": 1001,
+              "image": "butter-sliced.jpg",
+              "localizedName": "butter",
+              "name": "butter"
+            },
+            {
+              "id": 20081,
+              "image": "flour.png",
+              "localizedName": "all purpose flour",
+              "name": "all purpose flour"
+            }
+          ],
+          "length": {
+            "number": 1,
+            "unit": "minutes"
+          },
+          "number": 5,
+          "step": "Stir in the butter and flour, cook 1 minute."
+        },
+        {
+          "equipment": [],
+          "ingredients": [
+            {
+              "id": 11124,
+              "image": "sliced-carrot.png",
+              "localizedName": "carrot",
+              "name": "carrot"
+            },
+            {
+              "id": 1006615,
+              "image": "chicken-broth.png",
+              "localizedName": "broth",
+              "name": "broth"
+            }
+          ],
+          "length": {
+            "number": 20,
+            "unit": "minutes"
+          },
+          "number": 6,
+          "step": "Add the broth. Simmer over medium heat for 20 minutes, until the carrots are tender."
+        },
+        {
+          "equipment": [],
+          "ingredients": [
+            {
+              "id": 1033,
+              "image": "parmesan.jpg",
+              "localizedName": "parmesan",
+              "name": "parmesan"
+            },
+            {
+              "id": 98853,
+              "image": "gnocchi-isolated.jpg",
+              "localizedName": "gnocchi",
+              "name": "gnocchi"
+            },
+            {
+              "id": 11233,
+              "image": "kale.jpg",
+              "localizedName": "kale",
+              "name": "kale"
+            },
+            {
+              "id": 1077,
+              "image": "milk.png",
+              "localizedName": "milk",
+              "name": "milk"
+            }
+          ],
+          "length": {
+            "number": 10,
+            "unit": "minutes"
+          },
+          "number": 7,
+          "step": "About 10 minutes before serving, stir in the kale, milk, parmesan, and gnocchi."
+        },
+        {
+          "equipment": [],
+          "ingredients": [
+            {
+              "id": 1033,
+              "image": "parmesan.jpg",
+              "localizedName": "parmesan",
+              "name": "parmesan"
+            },
+            {
+              "id": 2036,
+              "image": "rosemary.jpg",
+              "localizedName": "rosemary",
+              "name": "rosemary"
+            },
+            {
+              "id": 10123,
+              "image": "https://spoonacular.com/cdn/ingredients_100x100/raw-bacon.png",
+              "localizedName": "bacon",
+              "name": "bacon"
+            },
+            {
+              "id": 18064,
+              "image": "white-bread.jpg",
+              "localizedName": "bread",
+              "name": "bread"
+            },
+            {
+              "id": 0,
+              "image": "",
+              "localizedName": "soup",
+              "name": "soup"
+            }
+          ],
+          "number": 8,
+          "step": "Serve the soup topped with the rosemary bacon and parmesan. Enjoy warm...preferably with a crusty piece of bread."
+        },
+        {
+          "equipment": [
+            {
+              "id": 404667,
+              "image": "https://spoonacular.com/cdn/equipment_100x100/dutch-oven.jpg",
+              "localizedName": "dutch oven",
+              "name": "dutch oven"
+            }
+          ],
+          "ingredients": [
+            {
+              "id": 2036,
+              "image": "rosemary.jpg",
+              "localizedName": "rosemary",
+              "name": "rosemary"
+            },
+            {
+              "id": 10123,
+              "image": "https://spoonacular.com/cdn/ingredients_100x100/raw-bacon.png",
+              "localizedName": "bacon",
+              "name": "bacon"
+            }
+          ],
+          "length": {
+            "number": 5,
+            "unit": "minutes"
+          },
+          "number": 9,
+          "step": "Cook the bacon in a large dutch oven over medium heat until crisp, about 5 minutes. During the last minute of cooking, add the rosemary."
+        },
+        {
+          "equipment": [],
+          "ingredients": [
+            {
+              "id": 4609,
+              "image": "raw-bacon.png",
+              "localizedName": "bacon drippings",
+              "name": "bacon drippings"
+            },
+            {
+              "id": 10123,
+              "image": "https://spoonacular.com/cdn/ingredients_100x100/raw-bacon.png",
+              "localizedName": "bacon",
+              "name": "bacon"
+            }
+          ],
+          "number": 10,
+          "step": "Remove the bacon. If there's excess bacon grease, drain off all but 1 tablespoon. "
+        },
+        {
+          "equipment": [],
+          "ingredients": [
+            {
+              "id": 11282,
+              "image": "brown-onion.png",
+              "localizedName": "onion",
+              "name": "onion"
+            }
+          ],
+          "length": {
+            "number": 5,
+            "unit": "minutes"
+          },
+          "number": 11,
+          "step": "Add the onion and cook 5 minutes, until golden."
+        },
+        {
+          "equipment": [],
+          "ingredients": [
+            {
+              "id": 1032009,
+              "image": "red-pepper-flakes.jpg",
+              "localizedName": "red pepper flakes",
+              "name": "red pepper flakes"
+            },
+            {
+              "id": 1102047,
+              "image": "salt-and-pepper.jpg",
+              "localizedName": "salt and pepper",
+              "name": "salt and pepper"
+            },
+            {
+              "id": 11124,
+              "image": "sliced-carrot.png",
+              "localizedName": "carrot",
+              "name": "carrot"
+            },
+            {
+              "id": 11143,
+              "image": "celery.jpg",
+              "localizedName": "celery",
+              "name": "celery"
+            },
+            {
+              "id": 11957,
+              "image": "fennel.png",
+              "localizedName": "fennel",
+              "name": "fennel"
+            },
+            {
+              "id": 11215,
+              "image": "garlic.png",
+              "localizedName": "garlic",
+              "name": "garlic"
+            },
+            {
+              "id": 2044,
+              "image": "basil.jpg",
+              "localizedName": "basil",
+              "name": "basil"
+            },
+            {
+              "id": 2049,
+              "image": "thyme.jpg",
+              "localizedName": "thyme",
+              "name": "thyme"
+            }
+          ],
+          "length": {
+            "number": 5,
+            "unit": "minutes"
+          },
+          "number": 12,
+          "step": "Add the carrots, celery, garlic, thyme, basil, fennel, crushed red pepper, and a pinch each of salt and pepper. Cook another 5 minutes, until very fragrant."
+        },
+        {
+          "equipment": [],
+          "ingredients": [
+            {
+              "id": 1001,
+              "image": "butter-sliced.jpg",
+              "localizedName": "butter",
+              "name": "butter"
+            },
+            {
+              "id": 20081,
+              "image": "flour.png",
+              "localizedName": "all purpose flour",
+              "name": "all purpose flour"
+            }
+          ],
+          "length": {
+            "number": 1,
+            "unit": "minutes"
+          },
+          "number": 13,
+          "step": "Stir in the butter and flour, cook 1 minute."
+        },
+        {
+          "equipment": [
+            {
+              "id": 404718,
+              "image": "https://spoonacular.com/cdn/equipment_100x100/slow-cooker.jpg",
+              "localizedName": "slow cooker",
+              "name": "slow cooker"
+            },
+            {
+              "id": 404783,
+              "image": "https://spoonacular.com/cdn/equipment_100x100/bowl.jpg",
+              "localizedName": "bowl",
+              "name": "bowl"
+            }
+          ],
+          "ingredients": [
+            {
+              "id": 1006615,
+              "image": "chicken-broth.png",
+              "localizedName": "broth",
+              "name": "broth"
+            }
+          ],
+          "length": {
+            "number": 480,
+            "unit": "minutes"
+          },
+          "number": 14,
+          "step": "Remove from the heat and add to the bowl of your crockpot. To the crockpot, add the broth. Cover and cook on low for 6-8 hours or on high for 4-5."
+        },
+        {
+          "equipment": [],
+          "ingredients": [
+            {
+              "id": 1033,
+              "image": "parmesan.jpg",
+              "localizedName": "parmesan",
+              "name": "parmesan"
+            },
+            {
+              "id": 98853,
+              "image": "gnocchi-isolated.jpg",
+              "localizedName": "gnocchi",
+              "name": "gnocchi"
+            },
+            {
+              "id": 11233,
+              "image": "kale.jpg",
+              "localizedName": "kale",
+              "name": "kale"
+            },
+            {
+              "id": 1077,
+              "image": "milk.png",
+              "localizedName": "milk",
+              "name": "milk"
+            }
+          ],
+          "length": {
+            "number": 15,
+            "unit": "minutes"
+          },
+          "number": 15,
+          "step": "During the last 15 minutes of cooking, stir in the kale, milk, parmesan, and gnocchi."
+        },
+        {
+          "equipment": [],
+          "ingredients": [
+            {
+              "id": 1033,
+              "image": "parmesan.jpg",
+              "localizedName": "parmesan",
+              "name": "parmesan"
+            },
+            {
+              "id": 2036,
+              "image": "rosemary.jpg",
+              "localizedName": "rosemary",
+              "name": "rosemary"
+            },
+            {
+              "id": 10123,
+              "image": "https://spoonacular.com/cdn/ingredients_100x100/raw-bacon.png",
+              "localizedName": "bacon",
+              "name": "bacon"
+            },
+            {
+              "id": 0,
+              "image": "",
+              "localizedName": "soup",
+              "name": "soup"
+            }
+          ],
+          "number": 16,
+          "step": "Serve the soup topped with the rosemary bacon and parmesan. Enjoy warm"
+        },
+        {
+          "equipment": [
+            {
+              "id": 414093,
+              "image": "",
+              "localizedName": "instant pot",
+              "name": "instant pot"
+            }
+          ],
+          "ingredients": [],
+          "number": 17,
+          "step": "Set Instant Pot to sauté."
+        },
+        {
+          "equipment": [],
+          "ingredients": [
+            {
+              "id": 2036,
+              "image": "rosemary.jpg",
+              "localizedName": "rosemary",
+              "name": "rosemary"
+            },
+            {
+              "id": 10123,
+              "image": "https://spoonacular.com/cdn/ingredients_100x100/raw-bacon.png",
+              "localizedName": "bacon",
+              "name": "bacon"
+            }
+          ],
+          "length": {
+            "number": 5,
+            "unit": "minutes"
+          },
+          "number": 18,
+          "step": "Add the bacon and cook until crisp, about 5 minutes. During the last minute of cooking, add the rosemary."
+        },
+        {
+          "equipment": [],
+          "ingredients": [
+            {
+              "id": 4609,
+              "image": "raw-bacon.png",
+              "localizedName": "bacon drippings",
+              "name": "bacon drippings"
+            },
+            {
+              "id": 10123,
+              "image": "https://spoonacular.com/cdn/ingredients_100x100/raw-bacon.png",
+              "localizedName": "bacon",
+              "name": "bacon"
+            }
+          ],
+          "number": 19,
+          "step": "Remove the bacon. If there's excess bacon grease, drain off all but 1 tablespoon. "
+        },
+        {
+          "equipment": [],
+          "ingredients": [
+            {
+              "id": 11282,
+              "image": "brown-onion.png",
+              "localizedName": "onion",
+              "name": "onion"
+            }
+          ],
+          "length": {
+            "number": 5,
+            "unit": "minutes"
+          },
+          "number": 20,
+          "step": "Add the onion and cook 5 minutes, until golden."
+        },
+        {
+          "equipment": [],
+          "ingredients": [
+            {
+              "id": 1032009,
+              "image": "red-pepper-flakes.jpg",
+              "localizedName": "red pepper flakes",
+              "name": "red pepper flakes"
+            },
+            {
+              "id": 1102047,
+              "image": "salt-and-pepper.jpg",
+              "localizedName": "salt and pepper",
+              "name": "salt and pepper"
+            },
+            {
+              "id": 11124,
+              "image": "sliced-carrot.png",
+              "localizedName": "carrot",
+              "name": "carrot"
+            },
+            {
+              "id": 11143,
+              "image": "celery.jpg",
+              "localizedName": "celery",
+              "name": "celery"
+            },
+            {
+              "id": 11957,
+              "image": "fennel.png",
+              "localizedName": "fennel",
+              "name": "fennel"
+            },
+            {
+              "id": 11215,
+              "image": "garlic.png",
+              "localizedName": "garlic",
+              "name": "garlic"
+            },
+            {
+              "id": 2044,
+              "image": "basil.jpg",
+              "localizedName": "basil",
+              "name": "basil"
+            },
+            {
+              "id": 2049,
+              "image": "thyme.jpg",
+              "localizedName": "thyme",
+              "name": "thyme"
+            }
+          ],
+          "length": {
+            "number": 5,
+            "unit": "minutes"
+          },
+          "number": 21,
+          "step": "Add the carrots, celery, garlic, thyme, basil, fennel, crushed red pepper, and a pinch each of salt and pepper. Cook another 5 minutes, until very fragrant."
+        },
+        {
+          "equipment": [
+            {
+              "id": 414093,
+              "image": "",
+              "localizedName": "instant pot",
+              "name": "instant pot"
+            }
+          ],
+          "ingredients": [
+            {
+              "id": 1001,
+              "image": "butter-sliced.jpg",
+              "localizedName": "butter",
+              "name": "butter"
+            },
+            {
+              "id": 20081,
+              "image": "flour.png",
+              "localizedName": "all purpose flour",
+              "name": "all purpose flour"
+            }
+          ],
+          "length": {
+            "number": 1,
+            "unit": "minutes"
+          },
+          "number": 22,
+          "step": "Stir in the butter and flour, cook 1 minute. Turn the Instant Pot off."
+        },
+        {
+          "equipment": [],
+          "ingredients": [
+            {
+              "id": 1006615,
+              "image": "chicken-broth.png",
+              "localizedName": "broth",
+              "name": "broth"
+            }
+          ],
+          "length": {
+            "number": 6,
+            "unit": "minutes"
+          },
+          "number": 23,
+          "step": "Add the broth. Cover and cook on high pressure for 6 minutes."
+        },
+        {
+          "equipment": [
+            {
+              "id": 414093,
+              "image": "",
+              "localizedName": "instant pot",
+              "name": "instant pot"
+            }
+          ],
+          "ingredients": [
+            {
+              "id": 1033,
+              "image": "parmesan.jpg",
+              "localizedName": "parmesan",
+              "name": "parmesan"
+            },
+            {
+              "id": 98853,
+              "image": "gnocchi-isolated.jpg",
+              "localizedName": "gnocchi",
+              "name": "gnocchi"
+            },
+            {
+              "id": 11233,
+              "image": "kale.jpg",
+              "localizedName": "kale",
+              "name": "kale"
+            },
+            {
+              "id": 1077,
+              "image": "milk.png",
+              "localizedName": "milk",
+              "name": "milk"
+            }
+          ],
+          "length": {
+            "number": 10,
+            "unit": "minutes"
+          },
+          "number": 24,
+          "step": "Once done cooking, use the natural or quick release function. Set the Instant Pot to sauté. Stir in the kale, milk, parmesan, and gnocchi. Cook until the kale is wilted, about 10 minutes."
+        },
+        {
+          "equipment": [],
+          "ingredients": [
+            {
+              "id": 1033,
+              "image": "parmesan.jpg",
+              "localizedName": "parmesan",
+              "name": "parmesan"
+            },
+            {
+              "id": 2036,
+              "image": "rosemary.jpg",
+              "localizedName": "rosemary",
+              "name": "rosemary"
+            },
+            {
+              "id": 10123,
+              "image": "https://spoonacular.com/cdn/ingredients_100x100/raw-bacon.png",
+              "localizedName": "bacon",
+              "name": "bacon"
+            },
+            {
+              "id": 0,
+              "image": "",
+              "localizedName": "soup",
+              "name": "soup"
+            }
+          ],
+          "number": 25,
+          "step": "Serve the soup topped with the rosemary bacon and parmesan. Enjoy warm."
+        }
+      ]
+    }
+  ],
+  "cheap": false,
+  "cookingMinutes": 25,
+  "creditsText": "halfbakedharvest.com",
+  "cuisines": ["Mediterranean", "Italian", "European"],
+  "dairyFree": false,
+  "diets": [],
+  "dishTypes": ["lunch", "soup", "main course", "main dish", "dinner"],
+  "extendedIngredients": [
+    {
+      "aisle": "Meat",
+      "amount": 4.0,
+      "consistency": "SOLID",
+      "id": 10310123,
+      "image": "raw-bacon.png",
+      "measures": {
+        "metric": {
+          "amount": 4.0,
+          "unitLong": "slices",
+          "unitShort": "slice"
+        },
+        "us": {
+          "amount": 4.0,
+          "unitLong": "slices",
+          "unitShort": "slice"
+        }
+      },
+      "meta": ["thick cut", "chopped"],
+      "name": "bacon",
+      "nameClean": "thick cut bacon",
+      "original": "4 slices thick cut bacon, chopped",
+      "originalName": "thick cut bacon, chopped",
+      "unit": "slices"
+    },
+    {
+      "aisle": "Produce",
+      "amount": 1.0,
+      "consistency": "SOLID",
+      "id": 2063,
+      "image": "rosemary.jpg",
+      "measures": {
+        "metric": {
+          "amount": 1.0,
+          "unitLong": "Tbsp",
+          "unitShort": "Tbsp"
+        },
+        "us": {
+          "amount": 1.0,
+          "unitLong": "Tbsp",
+          "unitShort": "Tbsp"
+        }
+      },
+      "meta": ["fresh", "chopped"],
+      "name": "rosemary",
+      "nameClean": "fresh rosemary",
+      "original": "1 tablespoon fresh chopped rosemary",
+      "originalName": "fresh chopped rosemary",
+      "unit": "tablespoon"
+    },
+    {
+      "aisle": "Oil, Vinegar, Salad Dressing",
+      "amount": 2.0,
+      "consistency": "LIQUID",
+      "id": 1034053,
+      "image": "olive-oil.jpg",
+      "measures": {
+        "metric": {
+          "amount": 2.0,
+          "unitLong": "Tbsps",
+          "unitShort": "Tbsps"
+        },
+        "us": {
+          "amount": 2.0,
+          "unitLong": "Tbsps",
+          "unitShort": "Tbsps"
+        }
+      },
+      "meta": [],
+      "name": "extra virgin olive oil",
+      "nameClean": "extra virgin olive oil",
+      "original": "2 tablespoons extra virgin olive oil",
+      "originalName": "extra virgin olive oil",
+      "unit": "tablespoons"
+    },
+    {
+      "aisle": "Produce",
+      "amount": 1.0,
+      "consistency": "SOLID",
+      "id": 10511282,
+      "image": "brown-onion.png",
+      "measures": {
+        "metric": {
+          "amount": 1.0,
+          "unitLong": "",
+          "unitShort": ""
+        },
+        "us": {
+          "amount": 1.0,
+          "unitLong": "",
+          "unitShort": ""
+        }
+      },
+      "meta": ["yellow", "chopped"],
+      "name": "onion",
+      "nameClean": "yellow onion",
+      "original": "1 yellow onion, chopped",
+      "originalName": "yellow onion, chopped",
+      "unit": ""
+    },
+    {
+      "aisle": "Produce",
+      "amount": 6.0,
+      "consistency": "SOLID",
+      "id": 11124,
+      "image": "sliced-carrot.png",
+      "measures": {
+        "metric": {
+          "amount": 6.0,
+          "unitLong": "",
+          "unitShort": ""
+        },
+        "us": {
+          "amount": 6.0,
+          "unitLong": "",
+          "unitShort": ""
+        }
+      },
+      "meta": ["chopped"],
+      "name": "carrots",
+      "nameClean": "carrot",
+      "original": "6 carrots, chopped",
+      "originalName": "carrots, chopped",
+      "unit": ""
+    },
+    {
+      "aisle": "Produce",
+      "amount": 4.0,
+      "consistency": "SOLID",
+      "id": 10111143,
+      "image": "celery.jpg",
+      "measures": {
+        "metric": {
+          "amount": 4.0,
+          "unitLong": "",
+          "unitShort": ""
+        },
+        "us": {
+          "amount": 4.0,
+          "unitLong": "",
+          "unitShort": ""
+        }
+      },
+      "meta": ["chopped"],
+      "name": "celery stalks",
+      "nameClean": "celery sticks",
+      "original": "4 celery stalks, chopped",
+      "originalName": "celery stalks, chopped",
+      "unit": ""
+    },
+    {
+      "aisle": "Produce",
+      "amount": 2.0,
+      "consistency": "SOLID",
+      "id": 11215,
+      "image": "garlic.png",
+      "measures": {
+        "metric": {
+          "amount": 2.0,
+          "unitLong": "cloves",
+          "unitShort": "cloves"
+        },
+        "us": {
+          "amount": 2.0,
+          "unitLong": "cloves",
+          "unitShort": "cloves"
+        }
+      },
+      "meta": ["minced", "grated"],
+      "name": "garlic",
+      "nameClean": "garlic",
+      "original": "2-4 cloves garlic, minced or grated",
+      "originalName": "garlic, minced or grated",
+      "unit": "cloves"
+    },
+    {
+      "aisle": "Produce",
+      "amount": 2.0,
+      "consistency": "SOLID",
+      "id": 1012049,
+      "image": "thyme.jpg",
+      "measures": {
+        "metric": {
+          "amount": 2.0,
+          "unitLong": "Tbsps",
+          "unitShort": "Tbsps"
+        },
+        "us": {
+          "amount": 2.0,
+          "unitLong": "Tbsps",
+          "unitShort": "Tbsps"
+        }
+      },
+      "meta": ["dried", "fresh", "(or 2 teaspoons )"],
+      "name": "thyme leaves",
+      "nameClean": "fresh thyme",
+      "original": "2 tablespoons fresh thyme leaves (or 2 teaspoons dried)",
+      "originalName": "fresh thyme leaves (or 2 teaspoons dried)",
+      "unit": "tablespoons"
+    },
+    {
+      "aisle": "Spices and Seasonings",
+      "amount": 1.0,
+      "consistency": "SOLID",
+      "id": 2003,
+      "image": "basil.jpg",
+      "measures": {
+        "metric": {
+          "amount": 1.0,
+          "unitLong": "Tbsp",
+          "unitShort": "Tbsp"
+        },
+        "us": {
+          "amount": 1.0,
+          "unitLong": "Tbsp",
+          "unitShort": "Tbsp"
+        }
+      },
+      "meta": ["dried", "(or 1 teaspoon )"],
+      "name": "basil",
+      "nameClean": "dried basil",
+      "original": "1 tablespoon dried basil (or 1 teaspoon dried)",
+      "originalName": "dried basil (or 1 teaspoon dried)",
+      "unit": "tablespoon"
+    },
+    {
+      "aisle": "Spices and Seasonings",
+      "amount": 1.0,
+      "consistency": "SOLID",
+      "id": 2018,
+      "image": "fennel-seeds.jpg",
+      "measures": {
+        "metric": {
+          "amount": 1.0,
+          "unitLong": "teaspoon",
+          "unitShort": "tsp"
+        },
+        "us": {
+          "amount": 1.0,
+          "unitLong": "teaspoon",
+          "unitShort": "tsp"
+        }
+      },
+      "meta": [],
+      "name": "fennel seeds use to your taste",
+      "nameClean": "fennel seeds",
+      "original": "1-2 teaspoons fennel seeds use to your taste",
+      "originalName": "fennel seeds use to your taste",
+      "unit": "teaspoons"
+    },
+    {
+      "aisle": "Spices and Seasonings",
+      "amount": 1.0,
+      "consistency": "SOLID",
+      "id": 1032009,
+      "image": "red-pepper-flakes.jpg",
+      "measures": {
+        "metric": {
+          "amount": 1.0,
+          "unitLong": "pinch",
+          "unitShort": "pinch"
+        },
+        "us": {
+          "amount": 1.0,
+          "unitLong": "pinch",
+          "unitShort": "pinch"
+        }
+      },
+      "meta": ["red", "crushed"],
+      "name": "pepper flakes",
+      "nameClean": "red pepper flakes",
+      "original": "1 pinch crushed red pepper flakes",
+      "originalName": "crushed red pepper flakes",
+      "unit": "pinch"
+    },
+    {
+      "aisle": "Spices and Seasonings",
+      "amount": 6.0,
+      "consistency": "SOLID",
+      "id": 1102047,
+      "image": "salt-and-pepper.jpg",
+      "measures": {
+        "metric": {
+          "amount": 6.0,
+          "unitLong": "servings",
+          "unitShort": "servings"
+        },
+        "us": {
+          "amount": 6.0,
+          "unitLong": "servings",
+          "unitShort": "servings"
+        }
+      },
+      "meta": ["black"],
+      "name": "kosher salt and pepper",
+      "nameClean": "salt and pepper",
+      "original": "kosher salt and black pepper",
+      "originalName": "kosher salt and black pepper",
+      "unit": "servings"
+    },
+    {
+      "aisle": "Milk, Eggs, Other Dairy",
+      "amount": 2.0,
+      "consistency": "SOLID",
+      "id": 1001001,
+      "image": "butter.jpg",
+      "measures": {
+        "metric": {
+          "amount": 2.0,
+          "unitLong": "Tbsps",
+          "unitShort": "Tbsps"
+        },
+        "us": {
+          "amount": 2.0,
+          "unitLong": "Tbsps",
+          "unitShort": "Tbsps"
+        }
+      },
+      "meta": ["salted"],
+      "name": "butter",
+      "nameClean": "salted butter",
+      "original": "2 tablespoons salted butter",
+      "originalName": "salted butter",
+      "unit": "tablespoons"
+    },
+    {
+      "aisle": "Baking",
+      "amount": 2.0,
+      "consistency": "SOLID",
+      "id": 20081,
+      "image": "flour.png",
+      "measures": {
+        "metric": {
+          "amount": 2.0,
+          "unitLong": "Tbsps",
+          "unitShort": "Tbsps"
+        },
+        "us": {
+          "amount": 2.0,
+          "unitLong": "Tbsps",
+          "unitShort": "Tbsps"
+        }
+      },
+      "meta": ["all-purpose"],
+      "name": "flour",
+      "nameClean": "wheat flour",
+      "original": "2 tablespoons all-purpose flour",
+      "originalName": "all-purpose flour",
+      "unit": "tablespoons"
+    },
+    {
+      "aisle": "Canned and Jarred",
+      "amount": 6.0,
+      "consistency": "LIQUID",
+      "id": 99253,
+      "image": "chicken-broth.png",
+      "measures": {
+        "metric": {
+          "amount": 1.44,
+          "unitLong": "liters",
+          "unitShort": "l"
+        },
+        "us": {
+          "amount": 6.0,
+          "unitLong": "cups",
+          "unitShort": "cups"
+        }
+      },
+      "meta": ["low sodium"],
+      "name": "vegetable broth",
+      "nameClean": "low sodium vegetable broth",
+      "original": "6 cups low sodium vegetable broth",
+      "originalName": "low sodium vegetable broth",
+      "unit": "cups"
+    },
+    {
+      "aisle": "Produce",
+      "amount": 4.0,
+      "consistency": "SOLID",
+      "id": 11233,
+      "image": "kale.jpg",
+      "measures": {
+        "metric": {
+          "amount": 84.0,
+          "unitLong": "grams",
+          "unitShort": "g"
+        },
+        "us": {
+          "amount": 4.0,
+          "unitLong": "cups",
+          "unitShort": "cups"
+        }
+      },
+      "meta": ["roughly chopped"],
+      "name": "kale",
+      "nameClean": "kale",
+      "original": "4-6 cups roughly chopped kale",
+      "originalName": "roughly chopped kale",
+      "unit": "cups"
+    },
+    {
+      "aisle": "Canned and Jarred",
+      "amount": 1.5,
+      "consistency": "LIQUID",
+      "id": 12117,
+      "image": "coconut-milk.png",
+      "measures": {
+        "metric": {
+          "amount": 360.0,
+          "unitLong": "milliliters",
+          "unitShort": "ml"
+        },
+        "us": {
+          "amount": 1.5,
+          "unitLong": "cups",
+          "unitShort": "cups"
+        }
+      },
+      "meta": ["whole", "canned"],
+      "name": "coconut milk",
+      "nameClean": "unsweetened coconut milk",
+      "original": "1 1/2 cups canned coconut milk or whole milk",
+      "originalName": "canned coconut milk or whole milk",
+      "unit": "cups"
+    },
+    {
+      "aisle": "Cheese",
+      "amount": 0.5,
+      "consistency": "SOLID",
+      "id": 1001033,
+      "image": "parmesan.jpg",
+      "measures": {
+        "metric": {
+          "amount": 50.0,
+          "unitLong": "grams",
+          "unitShort": "g"
+        },
+        "us": {
+          "amount": 0.5,
+          "unitLong": "cups",
+          "unitShort": "cups"
+        }
+      },
+      "meta": ["grated", "plus more for serving"],
+      "name": "asiago cheese",
+      "nameClean": "asiago cheese",
+      "original": "1/2 cup grated parmesan or asiago cheese, plus more for serving",
+      "originalName": "grated parmesan or asiago cheese, plus more for serving",
+      "unit": "cup"
+    },
+    {
+      "aisle": "Pasta and Rice",
+      "amount": 1.0,
+      "consistency": "SOLID",
+      "id": 98853,
+      "image": "gnocchi-isolated.jpg",
+      "measures": {
+        "metric": {
+          "amount": 453.592,
+          "unitLong": "grams",
+          "unitShort": "g"
+        },
+        "us": {
+          "amount": 1.0,
+          "unitLong": "pound",
+          "unitShort": "lb"
+        }
+      },
+      "meta": ["fresh"],
+      "name": "potato gnocchi",
+      "nameClean": "gnocchi",
+      "original": "1 pound fresh potato gnocchi",
+      "originalName": "fresh potato gnocchi",
+      "unit": "pound"
+    }
+  ],
+  "gaps": "no",
+  "glutenFree": false,
+  "healthScore": 19,
+  "id": 1558543,
+  "image": "https://img.spoonacular.com/recipes/1558543-556x370.jpg",
+  "imageType": "jpg",
+  "instructions": "1. Cook the bacon in a large dutch oven over medium heat until crisp, about 5 minutes. During the last minute of cooking, add the rosemary. Remove the bacon. If there's excess bacon grease, drain off all but 1 tablespoon. Add the onion and cook 5 minutes, until golden. Add the carrots, celery, garlic, thyme, basil, fennel, crushed red pepper, and a pinch each of salt and pepper. Cook another 5 minutes, until very fragrant. 2. Stir in the butter and flour, cook 1 minute. Add the broth. Simmer over medium heat for 20 minutes, until the carrots are tender.3. About 10 minutes before serving, stir in the kale, milk, parmesan, and gnocchi.4. Serve the soup topped with the rosemary bacon and parmesan. Enjoy warm...preferably with a crusty piece of bread. \n1. Cook the bacon in a large dutch oven over medium heat until crisp, about 5 minutes. During the last minute of cooking, add the rosemary. Remove the bacon. If there's excess bacon grease, drain off all but 1 tablespoon. Add the onion and cook 5 minutes, until golden. Add the carrots, celery, garlic, thyme, basil, fennel, crushed red pepper, and a pinch each of salt and pepper. Cook another 5 minutes, until very fragrant. 2. Stir in the butter and flour, cook 1 minute. Remove from the heat and add to the bowl of your crockpot. To the crockpot, add the broth. Cover and cook on low for 6-8 hours or on high for 4-5.4. During the last 15 minutes of cooking, stir in the kale, milk, parmesan, and gnocchi.5. Serve the soup topped with the rosemary bacon and parmesan. Enjoy warm\n1. Set Instant Pot to sauté. Add the bacon and cook until crisp, about 5 minutes. During the last minute of cooking, add the rosemary. Remove the bacon. If there's excess bacon grease, drain off all but 1 tablespoon. Add the onion and cook 5 minutes, until golden. Add the carrots, celery, garlic, thyme, basil, fennel, crushed red pepper, and a pinch each of salt and pepper. Cook another 5 minutes, until very fragrant. 2. Stir in the butter and flour, cook 1 minute. Turn the Instant Pot off. Add the broth. Cover and cook on high pressure for 6 minutes.3. Once done cooking, use the natural or quick release function. Set the Instant Pot to sauté. Stir in the kale, milk, parmesan, and gnocchi. Cook until the kale is wilted, about 10 minutes. 4. Serve the soup topped with the rosemary bacon and parmesan. Enjoy warm.",
+  "lowFodmap": false,
+  "occasions": ["fall", "winter"],
+  "originalId": null,
+  "preparationMinutes": 15,
+  "pricePerServing": 284.2,
+  "readyInMinutes": 40,
+  "servings": 6,
+  "sourceName": "halfbakedharvest.com",
+  "sourceUrl": "https://www.halfbakedharvest.com/creamy-gnocchi-soup/",
+  "spoonacularScore": 62.55459213256836,
+  "summary": "Forget going out to eat or ordering takeout every time you crave Mediterranean food. Try making Creamy Gnocchi Soup with Rosemary Bacon at home. This recipe makes 6 servings with <b>547 calories</b>, <b>14g of protein</b>, and <b>36g of fat</b> each. For <b>$2.84 per serving</b>, this recipe <b>covers 26%</b> of your daily requirements of vitamins and minerals. Head to the store and pick up thyme leaves, vegetable broth, basil, and a few other things to make it today. It works well as a rather inexpensive main course for <b>Autumn</b>. 1 person has made this recipe and would make it again. It is brought to you by Half Baked Harvest. From preparation to the plate, this recipe takes roughly <b>40 minutes</b>. All things considered, we decided this recipe <b>deserves a spoonacular score of 62%</b>. This score is good. If you like this recipe, take a look at these similar recipes: <a href=\"https://spoonacular.com/recipes/one-skillet-creamy-bacon-and-kale-gnocchi-720488\">One Skillet Creamy Bacon and Kale Gnocchi</a>, <a href=\"https://spoonacular.com/recipes/creamy-gnocchi-soup-1684115\">Creamy Gnocchi Soup</a>, and <a href=\"https://spoonacular.com/recipes/creamy-chicken-gnocchi-soup-1047171\">Creamy Chicken Gnocchi Soup</a>.",
+  "sustainable": false,
+  "title": "Creamy Gnocchi Soup with Rosemary Bacon",
+  "vegan": false,
+  "vegetarian": false,
+  "veryHealthy": false,
+  "veryPopular": false,
+  "weightWatcherSmartPoints": 20
+}
