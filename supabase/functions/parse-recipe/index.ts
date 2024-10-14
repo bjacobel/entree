@@ -1,7 +1,6 @@
 /* eslint-disable import/extensions */
 
 import { createClient } from 'jsr:@supabase/supabase-js';
-import spoonacularRecipe from './example-response.json' with { type: 'json' };
 import type { SpoonacularRecipe } from './spoonacular.ts';
 
 const corsHeaders = {
@@ -52,8 +51,18 @@ Deno.serve(async (req: Request) => {
     } = await supabaseClient.auth.getUser(token);
     if (!user) throw new Error('User not found in request context');
 
-    const { title, sourceUrl, image, extendedIngredients, analyzedInstructions } =
-      spoonacularRecipe as SpoonacularRecipe;
+    const { recipeUrl } = await req.json();
+    const parsingResult = (await fetch(
+      `https://api.spoonacular.com/recipes/extract?${new URLSearchParams({
+        url: recipeUrl,
+      }).toString()}`,
+      {
+        headers: {
+          'X-Api-Key': Deno.env.get('SPOONACULAR_API_KEY')!,
+        },
+      },
+    ).then(resp => resp.json())) as SpoonacularRecipe;
+    const { title, sourceUrl, image, extendedIngredients, analyzedInstructions } = parsingResult;
     const steps = analyzedInstructions.flatMap(inst => inst.steps.map(step => step.step));
     const ingredients = extendedIngredients.map(ing => ing.original);
 
