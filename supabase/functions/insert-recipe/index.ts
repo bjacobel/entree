@@ -1,8 +1,6 @@
 /* eslint-disable import/extensions */
 
 import { createClient } from 'jsr:@supabase/supabase-js';
-import spoonacularRecipe from './example-response.json' with { type: 'json' };
-import type { SpoonacularRecipe } from './spoonacular.ts';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -52,20 +50,40 @@ Deno.serve(async (req: Request) => {
     } = await supabaseClient.auth.getUser(token);
     if (!user) throw new Error('User not found in request context');
 
-    const { title, sourceUrl, image, extendedIngredients, analyzedInstructions } =
-      spoonacularRecipe as SpoonacularRecipe;
-    const steps = analyzedInstructions.flatMap(inst => inst.steps.map(step => step.step));
-    const ingredients = extendedIngredients.map(ing => ing.original);
+    // // And we can run queries in the context of our authenticated user
+    // const { data, error } = await supabaseClient.from('users').select('*');
+    // if (error) throw error;
 
-    const recipe = {
-      url: sourceUrl,
+    const { data: recipeBoxData, error: recipeBoxQueryError } = await supabaseClient
+      .from('recipe_box_owner')
+      .select('recipe_box');
+    if (recipeBoxQueryError) throw recipeBoxQueryError;
+    if (!recipeBoxData) throw new Error(`No recipe box found for user ${user.email}`);
+
+    const {
+      url,
       title,
       steps,
       ingredients,
-      photo_url: image,
-    };
+      // eslint-disable-next-line camelcase
+      photo_url,
+    } = (await req.json()).recipe;
+    const { data: insertData, error: insertError } = await supabaseClient
+      .from('recipe')
+      .insert({
+        url,
+        created_by: user.id,
+        title,
+        steps: Array.isArray(steps) ? steps : steps.split('\n'),
+        ingredients: Array.isArray(ingredients) ? ingredients : ingredients.split('\n'),
+        // eslint-disable-next-line camelcase
+        photo_url,
+        recipe_box: recipeBoxData[0].recipe_box,
+      })
+      .select();
+    if (insertError) throw insertError;
 
-    return new Response(JSON.stringify({ recipe }), {
+    return new Response(JSON.stringify({ recipe: insertData[0].id }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
       status: 200,
     });
