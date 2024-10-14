@@ -14,7 +14,7 @@ export default ({ children }: { children: ReactNode }) => {
     }
   }, [session, loading, setLocation]);
 
-  if (loading) return <Loading fullscreen />;
+  if (loading) return <Loading />;
 
   return children;
 };

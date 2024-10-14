@@ -18,7 +18,7 @@ export default () => {
     }
   }, [session, loading, setLocation]);
 
-  if (!supabase || loading) return <Loading fullscreen />;
+  if (!supabase || loading) return <Loading />;
 
   return <Auth supabaseClient={supabase} appearance={{ theme: ThemeSupa }} providers={[]} />;
 };
