@@ -13,7 +13,7 @@ export default {
     OwnershipControls: {
       Rules: [
         {
-          ObjectOwnership: 'BucketOwnerPreferred',
+          ObjectOwnership: 'BucketOwnerEnforced',
         },
       ],
     },
