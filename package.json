@@ -105,7 +105,7 @@
     "validate": "tsc",
     "lint": "yarn run --silent style && yarn run --silent validate",
     "build": "webpack -c app/webpack.config.ts",
-    "start": "concurrently -k -n wds,codegen,functions \"webpack-dev-server -c app/webpack.config.ts\" \"yarn run codegen --watch\" \"supabase functions serve\"",
+    "start": "concurrently -k -n wds,codegen,functions \"webpack-dev-server -c app/webpack.config.ts\" \"yarn run codegen --watch\" \"supabase functions serve --env-file ./supabase/.env.local\"",
     "jest": "jest -c app/jest.config.ts",
     "test": "jest -c app/jest.config.ts",
     "codegen": "gql-gen --config app/codegen.ts"

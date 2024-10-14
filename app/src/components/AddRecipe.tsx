@@ -26,7 +26,7 @@ const AddRecipe = () => {
     },
     validate: {
       recipeUrl: value =>
-        /^(https?:\/\/)?([0-9a-zA-Z]+\.)?[-_0-9a-zA-Z]+\.[0-9a-zA-Z]+$/.test(value) ? null : 'Invalid URL',
+        /^(https?:\/\/)?([0-9a-zA-Z]+\.)?[-_0-9a-zA-Z]+\.[0-9a-zA-Z]+\/.+$/.test(value) ? null : 'Invalid URL',
     },
   });
 
