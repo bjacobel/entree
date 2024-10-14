@@ -28,7 +28,7 @@ export default () => (
             <AddRecipe />
           </Suspense>
         </Route>
-        <Route path="/recipe/:id/:slug">
+        <Route path="/recipe/:id/:slug?">
           <Suspense fallback={<Loading />}>
             <Recipe />
           </Suspense>

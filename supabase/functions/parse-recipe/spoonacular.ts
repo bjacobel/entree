@@ -49,7 +49,7 @@ export interface AnalyzedInstruction {
   steps: Step[];
 }
 
-export interface Recipe {
+export interface SpoonacularRecipe {
   aggregateLikes: number;
   analyzedInstructions: AnalyzedInstruction[];
   cheap: boolean;
