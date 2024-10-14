@@ -35,6 +35,7 @@
     "@bjacobel/cloudformer-node": "^0.0.23",
     "@bjacobel/vhtml-loader": "^2.3.0",
     "@graphql-codegen/cli": "^5.0.2",
+    "@graphql-codegen/client-preset": "^4.4.0",
     "@linaria/stylelint-config-standard-linaria": "^6.2.0",
     "@mapbox/cloudfriend": "^8.1.0",
     "@parcel/watcher": "^2.4.1",
