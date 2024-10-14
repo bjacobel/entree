@@ -22,7 +22,7 @@ const config = {
   // Configuration for sentry.io error and release monitoring
   SentryOrg: 'bjacobelcom',
   SentryProject: 'entree',
-  RavenDSN: 'https://a47a3c1a936941379cb5e0318bb4333a@sentry.io/114591',
+  RavenDSN: 'https://3ae0a6a0a70a326a6ac5539667f749ce@o51462.ingest.us.sentry.io/4508121650495488',
 
   // Configuration for Google Analytics
   GAProperty: 'UA-34138258-8',
