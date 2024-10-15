@@ -1,8 +1,18 @@
 import { useMemo } from 'react';
 import { Slider } from '@mantine/core';
 import { parseIngredient } from 'parse-ingredient';
+import { css } from '@linaria/core';
 
 import { Recipe } from '../generated/graphql';
+
+const slider = css`
+  max-width: 400px;
+  padding-bottom: 50px;
+`;
+
+const unpaddedList = css`
+  padding-left: 15px;
+`;
 
 type IngredientsProps = {
   ingredients: Recipe['ingredients'];
@@ -14,8 +24,6 @@ const PORTION_SIZES = [
   { value: 0.5, label: 'Half' },
   { value: 1, label: 'Standard' },
   { value: 2, label: 'Double' },
-  { value: 3, label: '3x' },
-  { value: 4, label: '4x' },
 ];
 
 const Ingredients = ({ ingredients, scale, setScale }: IngredientsProps) => {
@@ -32,9 +40,9 @@ const Ingredients = ({ ingredients, scale, setScale }: IngredientsProps) => {
 
   return (
     <>
-      <h3>Ingredient</h3>
-      <Slider value={scale} onChange={setScale} marks={PORTION_SIZES} min={0.5} max={4} step={0.5} />
-      <ul>
+      <h3>Ingredients</h3>
+      <Slider className={slider} value={scale} onChange={setScale} marks={PORTION_SIZES} min={0.5} max={2} step={0.5} />
+      <ul className={unpaddedList}>
         {parsedIngredients.map(ingr => (
           <li key={ingr.key}>
             <span>

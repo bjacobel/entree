@@ -17,6 +17,11 @@ const unstyledLink = css`
   color: black;
 `;
 
+const main = css`
+  max-width: 960px;
+  margin: 0 auto;
+`;
+
 const PrimaryLayout = ({ children }: { children: ReactNode }) => (
   <AppShell header={{ height: 60 }} padding="md">
     <AppShell.Header className={header}>
@@ -27,7 +32,7 @@ const PrimaryLayout = ({ children }: { children: ReactNode }) => (
       </h1>
       <Avatar />
     </AppShell.Header>
-    <AppShell.Main>{children}</AppShell.Main>
+    <AppShell.Main className={main}>{children}</AppShell.Main>
   </AppShell>
 );
 
