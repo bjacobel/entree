@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { Button, Group, Image, Textarea, TextInput } from '@mantine/core';
 import { useForm } from '@mantine/form';
 import { styled } from '@linaria/react';
-import { Link } from 'wouter';
+import { Link, useSearch } from 'wouter';
 
 import { useSupabase } from '../contexts/Supabase';
 import { Recipe } from '../generated/graphql';
@@ -16,6 +16,7 @@ const StyledForm = styled.form`
 
 const AddRecipe = () => {
   const supabase = useSupabase();
+  const search = useSearch();
   const [parseResult, setParseResult] = useState<Partial<Recipe>>();
   const [insertedId, setInsertedId] = useState(null);
 
@@ -48,6 +49,16 @@ const AddRecipe = () => {
       }
     },
   });
+
+  useEffect(() => {
+    if (search && !parseResult) {
+      const searchParams = new URLSearchParams(search);
+      if (searchParams.has('url')) {
+        urlForm.setValues({ recipeUrl: searchParams.get('url')! });
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [search, parseResult]);
 
   const insertRecipe = useMutation({
     mutationFn: (recipe: Partial<Recipe>) =>

@@ -50,6 +50,8 @@ const GET_MY_RECIPE_BOX_RECIPES = graphql(/* GraphQL */ `
                     created_at
                     updated_at
                     photo_url
+                    ingredients
+                    steps
                   }
                 }
               }
