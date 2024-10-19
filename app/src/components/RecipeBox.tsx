@@ -1,9 +1,10 @@
-import { useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { useSuspenseQuery, skipToken } from '@apollo/client';
 import { Link } from 'wouter';
 import slugify from '@sindresorhus/slugify';
 import { css } from '@linaria/core';
 import { Image, Input } from '@mantine/core';
+import { styled } from '@linaria/react';
 
 import { graphql } from '../generated/gql';
 import useSupabaseSession from '../hooks/useSupabaseSession';
@@ -11,13 +12,23 @@ import useRecipeSearch from '../hooks/useRecipeSearch';
 
 const recipeItems = css`
   padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 
   li {
     list-style-type: none;
+    max-width: calc(50% - 10px);
 
     a {
       color: black;
       text-decoration: none;
+
+      &:hover {
+        h3 {
+          text-decoration: underline;
+        }
+      }
 
       h3 {
         margin-bottom: 8px;
@@ -25,10 +36,22 @@ const recipeItems = css`
     }
 
     img {
-      max-width: 500px;
+      width: 100%;
     }
   }
 `;
+
+const Site = styled.p`
+  color: grey;
+  font-size: 0.9em;
+  font-style: italic;
+  margin: 0;
+`;
+
+const PrettyURL = memo(({ url }: { url: string }) => {
+  const { hostname } = new URL(url);
+  return <span>{hostname.startsWith('www.') ? hostname.slice(4) : hostname}</span>;
+});
 
 const GET_MY_RECIPE_BOX_RECIPES = graphql(/* GraphQL */ `
   query MyRecipes($cursor: Cursor, $user: UUID!) {
@@ -50,6 +73,7 @@ const GET_MY_RECIPE_BOX_RECIPES = graphql(/* GraphQL */ `
                     created_at
                     updated_at
                     photo_url
+                    url
                     ingredients
                     steps
                   }
@@ -92,8 +116,13 @@ export default () => {
         {[...searchResults.reverse()].map(recipe => (
           <li key={recipe.nodeId}>
             <Link href={`/recipe/${recipe.id}/${slugs.get(recipe.id)}`}>
-              <h3>{recipe.title}</h3>
               <Image radius="sm" src={recipe.photo_url} />
+              <h3>{recipe.title}</h3>
+              {recipe.url && (
+                <Site>
+                  <PrettyURL url={recipe.url} />
+                </Site>
+              )}
             </Link>
           </li>
         ))}
