@@ -22,7 +22,7 @@ const main = css`
   margin: 0 auto;
 `;
 
-const PrimaryLayout = ({ children }: { children: ReactNode }) => (
+const PrimaryLayout = ({ children, hideMenu }: { children: ReactNode; hideMenu?: boolean }) => (
   <AppShell header={{ height: 60 }} padding="md">
     <AppShell.Header className={header}>
       <h1>
@@ -30,7 +30,7 @@ const PrimaryLayout = ({ children }: { children: ReactNode }) => (
           Entrée
         </Link>
       </h1>
-      <Avatar />
+      {!hideMenu && <Avatar />}
     </AppShell.Header>
     <AppShell.Main className={main}>{children}</AppShell.Main>
   </AppShell>
