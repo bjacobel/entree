@@ -3,10 +3,11 @@ import { useSuspenseQuery, skipToken } from '@apollo/client';
 import { Link } from 'wouter';
 import slugify from '@sindresorhus/slugify';
 import { css } from '@linaria/core';
-import { Image } from '@mantine/core';
+import { Image, Input } from '@mantine/core';
 
 import { graphql } from '../generated/gql';
 import useSupabaseSession from '../hooks/useSupabaseSession';
+import useRecipeSearch from '../hooks/useRecipeSearch';
 
 const recipeItems = css`
   padding-left: 0;
@@ -80,11 +81,13 @@ export default () => {
   );
 
   const slugs = useMemo(() => new Map(recipes.map(recipe => [recipe.id, slugify(recipe.title)])), [recipes]);
+  const [searchResults, setSearchValue] = useRecipeSearch(recipes);
 
   return (
     <div>
+      <Input placeholder="Search recipes" onChange={evt => setSearchValue(evt.target.value)} />
       <ol className={recipeItems}>
-        {[...recipes.reverse()].map(recipe => (
+        {[...searchResults.reverse()].map(recipe => (
           <li key={recipe.nodeId}>
             <Link href={`/recipe/${recipe.id}/${slugs.get(recipe.id)}`}>
               <h3>{recipe.title}</h3>
