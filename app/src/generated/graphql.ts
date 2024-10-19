@@ -737,6 +737,8 @@ export type MyRecipesQuery = {
                 created_at: string;
                 updated_at?: string | null;
                 photo_url?: string | null;
+                ingredients: Array<string | null>;
+                steps: Array<string | null>;
                 nodeId: string;
               };
             }>;
@@ -989,6 +991,11 @@ export const MyRecipesDocument = {
                                                             name: { kind: 'Name', value: 'updated_at' },
                                                           },
                                                           { kind: 'Field', name: { kind: 'Name', value: 'photo_url' } },
+                                                          {
+                                                            kind: 'Field',
+                                                            name: { kind: 'Name', value: 'ingredients' },
+                                                          },
+                                                          { kind: 'Field', name: { kind: 'Name', value: 'steps' } },
                                                         ],
                                                       },
                                                     },

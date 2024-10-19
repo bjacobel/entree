@@ -3,7 +3,7 @@ import fuzzy from 'fuzzy';
 
 import { Recipe } from '../generated/graphql';
 
-const extract = (recipe: Recipe) => `${recipe.title}: ${recipe.ingredients.join(',')}`;
+const extract = (recipe: Recipe) => recipe.title;
 
 export default (recipes: Recipe[]): [Recipe[], Dispatch<SetStateAction<string>>] => {
   const [searchValue, setSearchValue] = useState('');
@@ -12,9 +12,12 @@ export default (recipes: Recipe[]): [Recipe[], Dispatch<SetStateAction<string>>]
   useEffect(() => {
     if (searchValue.length) {
       setSearchResults(fuzzy.filter(searchValue, recipes, { extract }).map(({ original }) => original));
+    } else {
+      setSearchResults(recipes);
     }
   }, [searchValue, setSearchResults, recipes]);
 
+  // @TODO: If recipes updates on us, we should update the search filter. Currently this just cancels search
   useEffect(() => {
     if (recipes.length) {
       setSearchResults(recipes);
