@@ -2,11 +2,11 @@ import { useEffect, useMemo, useState } from 'react';
 import { styled } from '@linaria/react';
 import { css } from '@linaria/core';
 import { Avatar as MantineAvatar, Menu } from '@mantine/core';
+import { Link } from 'wouter';
 
 import useSupabaseSession from '../hooks/useSupabaseSession';
 import { blue } from '../stylesheets/colors.css';
 import { shadow } from '../stylesheets/shared.css';
-import { Link } from 'wouter';
 
 const StyledAvatar = styled(MantineAvatar)`
   ${shadow}
