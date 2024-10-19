@@ -1,7 +1,6 @@
 /* eslint-disable import/extensions */
 
 import { createClient } from 'jsr:@supabase/supabase-js';
-
 import type { SpoonacularRecipe } from './spoonacular.ts';
 
 const corsHeaders = {
