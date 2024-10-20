@@ -24,14 +24,14 @@ const recipeItems = css`
       color: black;
       text-decoration: none;
 
+      h3 {
+        margin-bottom: 8px;
+      }
+
       &:hover {
         h3 {
           text-decoration: underline;
         }
-      }
-
-      h3 {
-        margin-bottom: 8px;
       }
     }
 
