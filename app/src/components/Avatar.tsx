@@ -7,6 +7,7 @@ import { Link } from 'wouter';
 import useSupabaseSession from '../hooks/useSupabaseSession';
 import { blue } from '../stylesheets/colors.css';
 import { shadow } from '../stylesheets/shared.css';
+import { useSupabase } from '../contexts/Supabase';
 
 const StyledAvatar = styled(MantineAvatar)`
   ${shadow}
@@ -26,6 +27,7 @@ const sha256 = async (message: string) => {
 
 const Avatar = () => {
   const [opened, setOpened] = useState(false);
+  const supabase = useSupabase();
   const { session } = useSupabaseSession();
   const [avatarUrl, setAvatarUrl] = useState<string | undefined>();
 
@@ -84,7 +86,9 @@ const Avatar = () => {
           Add recipe
         </Menu.Item>
         <Menu.Divider />
-        <Menu.Item color="red">Log out</Menu.Item>
+        <Menu.Item color="red" onClick={() => supabase?.auth.signOut()}>
+          Log out
+        </Menu.Item>
       </Menu.Dropdown>
     </Menu>
   );

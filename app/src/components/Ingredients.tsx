@@ -41,7 +41,16 @@ const Ingredients = ({ ingredients, scale, setScale }: IngredientsProps) => {
   return (
     <>
       <h3>Ingredients</h3>
-      <Slider className={slider} value={scale} onChange={setScale} marks={PORTION_SIZES} min={0.5} max={2} step={0.5} />
+      <Slider
+        mx={7}
+        className={slider}
+        value={scale}
+        onChange={setScale}
+        marks={PORTION_SIZES}
+        min={0.5}
+        max={2}
+        step={0.5}
+      />
       <ul className={unpaddedList}>
         {parsedIngredients.map(ingr => (
           <li key={ingr.key}>

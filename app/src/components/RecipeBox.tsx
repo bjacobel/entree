@@ -1,14 +1,14 @@
-import { memo, useMemo } from 'react';
+import { useMemo } from 'react';
 import { useSuspenseQuery, skipToken } from '@apollo/client';
 import { Link } from 'wouter';
 import slugify from '@sindresorhus/slugify';
 import { css } from '@linaria/core';
 import { Image, Input } from '@mantine/core';
-import { styled } from '@linaria/react';
 
 import { graphql } from '../generated/gql';
 import useSupabaseSession from '../hooks/useSupabaseSession';
 import useRecipeSearch from '../hooks/useRecipeSearch';
+import Site from './Site';
 
 const recipeItems = css`
   padding-left: 0;
@@ -40,18 +40,6 @@ const recipeItems = css`
     }
   }
 `;
-
-const Site = styled.p`
-  color: grey;
-  font-size: 0.9em;
-  font-style: italic;
-  margin: 0;
-`;
-
-const PrettyURL = memo(({ url }: { url: string }) => {
-  const { hostname } = new URL(url);
-  return <span>{hostname.startsWith('www.') ? hostname.slice(4) : hostname}</span>;
-});
 
 const GET_MY_RECIPE_BOX_RECIPES = graphql(/* GraphQL */ `
   query MyRecipes($cursor: Cursor, $user: UUID!) {
@@ -118,11 +106,7 @@ export default () => {
             <Link href={`/recipe/${recipe.id}/${slugs.get(recipe.id)}`}>
               <Image radius="sm" src={recipe.photo_url} />
               <h3>{recipe.title}</h3>
-              {recipe.url && (
-                <Site>
-                  <PrettyURL url={recipe.url} />
-                </Site>
-              )}
+              {recipe.url && <Site url={recipe.url} />}
             </Link>
           </li>
         ))}
