@@ -89,7 +89,9 @@ const AddRecipe = () => {
             {...urlForm.getInputProps('recipeUrl')}
           />
           <Group justify="flex-end" mt="md">
-            <Button type="submit">Parse</Button>
+            <Button type="submit" loading={parseRecipe.isPending}>
+              Parse
+            </Button>
           </Group>
         </form>
       )}
@@ -128,7 +130,9 @@ const AddRecipe = () => {
             }
           />
           <Group justify="flex-end" mt="md">
-            <Button type="submit">Save Recipe to Box</Button>
+            <Button type="submit" loading={insertRecipe.isPending}>
+              Save Recipe to Box
+            </Button>
           </Group>
         </StyledForm>
       )}
