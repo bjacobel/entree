@@ -3,12 +3,13 @@ import { useSuspenseQuery, skipToken } from '@apollo/client';
 import { Link } from 'wouter';
 import slugify from '@sindresorhus/slugify';
 import { css } from '@linaria/core';
-import { Image, Input } from '@mantine/core';
+import { Input } from '@mantine/core';
 
 import { graphql } from '../generated/gql';
 import useSupabaseSession from '../hooks/useSupabaseSession';
 import useRecipeSearch from '../hooks/useRecipeSearch';
 import Site from './Site';
+import PhotoCard from './PhotoCard';
 
 const recipeItems = css`
   padding-left: 0;
@@ -18,7 +19,7 @@ const recipeItems = css`
 
   li {
     list-style-type: none;
-    max-width: calc(50% - 10px);
+    width: calc(50% - 10px);
 
     a {
       color: black;
@@ -33,10 +34,6 @@ const recipeItems = css`
           text-decoration: underline;
         }
       }
-    }
-
-    img {
-      width: 100%;
     }
   }
 `;
@@ -104,7 +101,7 @@ export default () => {
         {[...searchResults.reverse()].map(recipe => (
           <li key={recipe.nodeId}>
             <Link href={`/recipe/${recipe.id}/${slugs.get(recipe.id)}`}>
-              <Image radius="sm" src={recipe.photo_url} />
+              <PhotoCard src={recipe.photo_url || undefined} />
               <h3>{recipe.title}</h3>
               {recipe.url && <Site url={recipe.url} />}
             </Link>

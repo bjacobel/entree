@@ -15,8 +15,16 @@ const SplitFlex = styled.div`
   display: flex;
   gap: 30px;
 
+  > div {
+    width: 50%;
+  }
+
   .img {
     margin-top: 30px;
+
+    img {
+      max-height: 500px;
+    }
   }
 
   @media (max-width: 700px) {
