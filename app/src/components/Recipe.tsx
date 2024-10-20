@@ -30,6 +30,10 @@ const SplitFlex = styled.div`
   @media (max-width: 700px) {
     gap: 0;
     flex-direction: column-reverse;
+
+    > div {
+      width: 100%;
+    }
   }
 `;
 
