@@ -5,6 +5,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import { GenerateSW } from 'workbox-webpack-plugin';
+import WebpackPwaManifest from 'webpack-pwa-manifest';
 
 import config from '../config';
 
@@ -114,9 +115,29 @@ export default (env: Record<string, unknown> = {}, { mode }: { mode?: string } =
       }),
       new HtmlWebpackPlugin({
         template: path.join(__dirname, './src/index.html.tsx'),
-        favicon: path.join(__dirname, './src/assets/images/favicon.ico'),
+        favicon: path.join(__dirname, './src/assets/images/icon.png'),
         title: 'Entrée',
         inject: true,
+      }),
+      new WebpackPwaManifest({
+        name: 'Entreé',
+        short_name: 'Entreé',
+        theme_color: '#ffffff',
+        background_color: '#ffffff',
+        display: 'standalone',
+        orientation: 'portrait',
+        scope: '/',
+        start_url: '/',
+        inject: true,
+        ios: true,
+        icons: [
+          {
+            src: path.join(__dirname, './src/assets/images/icon.png'),
+            sizes: [512],
+            destination: 'icons',
+            ios: true,
+          },
+        ],
       }),
       new MiniCssExtractPlugin({
         filename: isProd ? '[name].[contenthash].css' : '[name].css',
