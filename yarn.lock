@@ -8046,6 +8046,11 @@ form-data@^4.0.0:
     combined-stream "^1.0.8"
     mime-types "^2.1.12"
 
+format-quantity@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/format-quantity/-/format-quantity-3.0.0.tgz#51aec23a471a3c17469d609daa98e522a8ad90f2"
+  integrity sha512-rFMqM+RLYVMKDlw6ky3sfHmZnT8FudiPAPq9Hpylr6G3dZb7K42TTtcIKniFQrZZzEZgyT11ktEzJqr6E0uD2w==
+
 forwarded@0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.2.0.tgz#2269936428aad4c15c7ebe9779a84bf0b2a81811"

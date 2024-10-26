@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { useSuspenseQuery } from '@apollo/client';
-import { Link, useParams } from 'wouter';
-import { Image, Breadcrumbs } from '@mantine/core';
+import { useParams } from 'wouter';
+import { Image, Breadcrumbs, Text } from '@mantine/core';
 import { styled } from '@linaria/react';
 
 import { graphql } from '../generated/gql';
@@ -10,6 +10,7 @@ import Site from './Site';
 import Ingredients from './Ingredients';
 import Instructions from './Instructions';
 import SleepLock from './SleepLock';
+import StyledLink from './StyledLink';
 
 const SplitFlex = styled.div`
   display: flex;
@@ -74,8 +75,8 @@ export default () => {
   return (
     <>
       <Breadcrumbs mt="xs">
-        <Link href="/box">Recipe box</Link>
-        <Link href="#">Recipe</Link>
+        <StyledLink to="/box">Recipe box</StyledLink>
+        <Text>Recipe</Text>
       </Breadcrumbs>
       <SplitFlex>
         <div>

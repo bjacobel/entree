@@ -3,7 +3,7 @@ import { css } from '@linaria/core';
 import { Recipe } from '../generated/graphql';
 
 const unpaddedList = css`
-  padding-left: 15px;
+  padding-left: 20px;
 `;
 
 const Instructions = ({ steps }: { steps: Recipe['steps'] }) => (
