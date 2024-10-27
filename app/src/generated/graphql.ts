@@ -412,6 +412,7 @@ export type Recipe = Node & {
   __typename?: 'recipe';
   created_at: Scalars['Datetime']['output'];
   created_by?: Maybe<Scalars['UUID']['output']>;
+  deleted: Scalars['Boolean']['output'];
   id: Scalars['BigInt']['output'];
   ingredients: Array<Maybe<Scalars['String']['output']>>;
   /** Globally Unique Record Identifier */
@@ -449,6 +450,7 @@ export type RecipeFilter = {
   and?: InputMaybe<Array<RecipeFilter>>;
   created_at?: InputMaybe<DatetimeFilter>;
   created_by?: InputMaybe<UuidFilter>;
+  deleted?: InputMaybe<BooleanFilter>;
   id?: InputMaybe<BigIntFilter>;
   ingredients?: InputMaybe<StringListFilter>;
   nodeId?: InputMaybe<IdFilter>;
@@ -467,6 +469,7 @@ export type RecipeFilter = {
 export type RecipeInsertInput = {
   created_at?: InputMaybe<Scalars['Datetime']['input']>;
   created_by?: InputMaybe<Scalars['UUID']['input']>;
+  deleted?: InputMaybe<Scalars['Boolean']['input']>;
   ingredients?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   photo_url?: InputMaybe<Scalars['String']['input']>;
   recipe_box?: InputMaybe<Scalars['BigInt']['input']>;
@@ -487,6 +490,7 @@ export type RecipeInsertResponse = {
 export type RecipeOrderBy = {
   created_at?: InputMaybe<OrderByDirection>;
   created_by?: InputMaybe<OrderByDirection>;
+  deleted?: InputMaybe<OrderByDirection>;
   id?: InputMaybe<OrderByDirection>;
   photo_url?: InputMaybe<OrderByDirection>;
   recipe_box?: InputMaybe<OrderByDirection>;
@@ -498,6 +502,7 @@ export type RecipeOrderBy = {
 export type RecipeUpdateInput = {
   created_at?: InputMaybe<Scalars['Datetime']['input']>;
   created_by?: InputMaybe<Scalars['UUID']['input']>;
+  deleted?: InputMaybe<Scalars['Boolean']['input']>;
   ingredients?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   photo_url?: InputMaybe<Scalars['String']['input']>;
   recipe_box?: InputMaybe<Scalars['BigInt']['input']>;
@@ -710,6 +715,15 @@ export type RecipeQuery = {
   } | null;
 };
 
+export type DeleteRecipeMutationVariables = Exact<{
+  id: Scalars['BigInt']['input'];
+}>;
+
+export type DeleteRecipeMutation = {
+  __typename: 'Mutation';
+  updaterecipeCollection: { __typename: 'recipeUpdateResponse'; records: Array<{ __typename: 'recipe'; id: string }> };
+};
+
 export type MyRecipesQueryVariables = Exact<{
   cursor?: InputMaybe<Scalars['Cursor']['input']>;
   user: Scalars['UUID']['input'];
@@ -740,6 +754,7 @@ export type MyRecipesQuery = {
                 url?: string | null;
                 ingredients: Array<string | null>;
                 steps: Array<string | null>;
+                deleted: boolean;
                 nodeId: string;
               };
             }>;
@@ -788,6 +803,20 @@ export const RecipeDocument = {
                             kind: 'ObjectField',
                             name: { kind: 'Name', value: 'eq' },
                             value: { kind: 'Variable', name: { kind: 'Name', value: 'id' } },
+                          },
+                        ],
+                      },
+                    },
+                    {
+                      kind: 'ObjectField',
+                      name: { kind: 'Name', value: 'deleted' },
+                      value: {
+                        kind: 'ObjectValue',
+                        fields: [
+                          {
+                            kind: 'ObjectField',
+                            name: { kind: 'Name', value: 'eq' },
+                            value: { kind: 'BooleanValue', value: false },
                           },
                         ],
                       },
@@ -846,6 +875,90 @@ export const RecipeDocument = {
     },
   ],
 } as unknown as DocumentNode<RecipeQuery, RecipeQueryVariables>;
+export const DeleteRecipeDocument = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'OperationDefinition',
+      operation: 'mutation',
+      name: { kind: 'Name', value: 'deleteRecipe' },
+      variableDefinitions: [
+        {
+          kind: 'VariableDefinition',
+          variable: { kind: 'Variable', name: { kind: 'Name', value: 'id' } },
+          type: { kind: 'NonNullType', type: { kind: 'NamedType', name: { kind: 'Name', value: 'BigInt' } } },
+        },
+      ],
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: '__typename' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'updaterecipeCollection' },
+            arguments: [
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'set' },
+                value: {
+                  kind: 'ObjectValue',
+                  fields: [
+                    {
+                      kind: 'ObjectField',
+                      name: { kind: 'Name', value: 'deleted' },
+                      value: { kind: 'BooleanValue', value: true },
+                    },
+                  ],
+                },
+              },
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'filter' },
+                value: {
+                  kind: 'ObjectValue',
+                  fields: [
+                    {
+                      kind: 'ObjectField',
+                      name: { kind: 'Name', value: 'id' },
+                      value: {
+                        kind: 'ObjectValue',
+                        fields: [
+                          {
+                            kind: 'ObjectField',
+                            name: { kind: 'Name', value: 'eq' },
+                            value: { kind: 'Variable', name: { kind: 'Name', value: 'id' } },
+                          },
+                        ],
+                      },
+                    },
+                  ],
+                },
+              },
+              { kind: 'Argument', name: { kind: 'Name', value: 'atMost' }, value: { kind: 'IntValue', value: '1' } },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: '__typename' } },
+                {
+                  kind: 'Field',
+                  name: { kind: 'Name', value: 'records' },
+                  selectionSet: {
+                    kind: 'SelectionSet',
+                    selections: [
+                      { kind: 'Field', name: { kind: 'Name', value: '__typename' } },
+                      { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<DeleteRecipeMutation, DeleteRecipeMutationVariables>;
 export const MyRecipesDocument = {
   kind: 'Document',
   definitions: [
@@ -936,6 +1049,29 @@ export const MyRecipesDocument = {
                                         name: { kind: 'Name', value: 'after' },
                                         value: { kind: 'Variable', name: { kind: 'Name', value: 'cursor' } },
                                       },
+                                      {
+                                        kind: 'Argument',
+                                        name: { kind: 'Name', value: 'filter' },
+                                        value: {
+                                          kind: 'ObjectValue',
+                                          fields: [
+                                            {
+                                              kind: 'ObjectField',
+                                              name: { kind: 'Name', value: 'deleted' },
+                                              value: {
+                                                kind: 'ObjectValue',
+                                                fields: [
+                                                  {
+                                                    kind: 'ObjectField',
+                                                    name: { kind: 'Name', value: 'eq' },
+                                                    value: { kind: 'BooleanValue', value: false },
+                                                  },
+                                                ],
+                                              },
+                                            },
+                                          ],
+                                        },
+                                      },
                                     ],
                                     selectionSet: {
                                       kind: 'SelectionSet',
@@ -998,6 +1134,7 @@ export const MyRecipesDocument = {
                                                             name: { kind: 'Name', value: 'ingredients' },
                                                           },
                                                           { kind: 'Field', name: { kind: 'Name', value: 'steps' } },
+                                                          { kind: 'Field', name: { kind: 'Name', value: 'deleted' } },
                                                         ],
                                                       },
                                                     },

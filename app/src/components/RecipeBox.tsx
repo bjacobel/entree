@@ -38,13 +38,13 @@ const recipeItems = css`
   }
 `;
 
-const GET_MY_RECIPE_BOX_RECIPES = graphql(/* GraphQL */ `
+export const GET_MY_RECIPE_BOX_RECIPES = graphql(/* GraphQL */ `
   query MyRecipes($cursor: Cursor, $user: UUID!) {
     recipe_box_ownerCollection(filter: { user: { eq: $user } }) {
       edges {
         node {
           recipe_box {
-            recipeCollection(first: 10, after: $cursor) {
+            recipeCollection(first: 10, after: $cursor, filter: { deleted: { eq: false } }) {
               pageInfo {
                 endCursor
                 hasNextPage
@@ -61,6 +61,7 @@ const GET_MY_RECIPE_BOX_RECIPES = graphql(/* GraphQL */ `
                     url
                     ingredients
                     steps
+                    deleted
                   }
                 }
               }

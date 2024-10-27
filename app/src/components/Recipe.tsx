@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react';
-import { useSuspenseQuery } from '@apollo/client';
-import { useParams } from 'wouter';
-import { Image, Breadcrumbs, Text } from '@mantine/core';
+import { useMutation, useSuspenseQuery } from '@apollo/client';
+import { useLocation, useParams } from 'wouter';
+import { Image, Breadcrumbs, Text, Button, Flex, Modal } from '@mantine/core';
+import { notifications } from '@mantine/notifications';
 import { styled } from '@linaria/react';
 
 import { graphql } from '../generated/gql';
@@ -11,6 +12,7 @@ import Ingredients from './Ingredients';
 import Instructions from './Instructions';
 import SleepLock from './SleepLock';
 import StyledLink from './StyledLink';
+import { GET_MY_RECIPE_BOX_RECIPES } from './RecipeBox';
 
 const SplitFlex = styled.div`
   display: flex;
@@ -40,7 +42,7 @@ const SplitFlex = styled.div`
 
 const GET_RECIPE = graphql(/* GraphQL */ `
   query Recipe($id: BigInt) {
-    recipeCollection(filter: { id: { eq: $id } }) {
+    recipeCollection(filter: { id: { eq: $id }, deleted: { eq: false } }) {
       edges {
         node {
           ... on recipe {
@@ -59,14 +61,42 @@ const GET_RECIPE = graphql(/* GraphQL */ `
   }
 `);
 
+const REMOVE_RECIPE_FROM_BOX = graphql(/* GraphQL */ `
+  mutation deleteRecipe($id: BigInt!) {
+    updaterecipeCollection(set: { deleted: true }, filter: { id: { eq: $id } }, atMost: 1) {
+      records {
+        id
+      }
+    }
+  }
+`);
+
 export default () => {
+  const [__location, setLocation] = useLocation();
   const { id } = useParams<{ id: string }>(); // slug isn't actually used, it's just for pretty urls
+
+  const [showRemoveConfirmation, setShowRemoveConfirmation] = useState(false);
+  const [recipeScale, setRecipeScale] = useState(1.0);
+
   const { data } = useSuspenseQuery(GET_RECIPE, {
     variables: {
       id,
     },
   });
-  const [recipeScale, setRecipeScale] = useState(1.0);
+  const [removeFromBox, { loading: removalLoading }] = useMutation(REMOVE_RECIPE_FROM_BOX, {
+    onError(error) {
+      notifications.show({
+        title: 'Error',
+        color: 'red',
+        message: error.message,
+      });
+    },
+    onCompleted() {
+      setShowRemoveConfirmation(false);
+      setLocation('/box');
+    },
+    refetchQueries: [GET_MY_RECIPE_BOX_RECIPES],
+  });
 
   const recipe = useMemo(() => data.recipeCollection?.edges[0]?.node, [data]);
 
@@ -74,10 +104,15 @@ export default () => {
 
   return (
     <>
-      <Breadcrumbs mt="xs">
-        <StyledLink to="/box">Recipe box</StyledLink>
-        <Text>Recipe</Text>
-      </Breadcrumbs>
+      <Flex justify="space-between">
+        <Breadcrumbs mt="xs">
+          <StyledLink to="/box">Recipe box</StyledLink>
+          <Text>Recipe</Text>
+        </Breadcrumbs>
+        <Button variant="transparent" color="red" px={0} onClick={() => setShowRemoveConfirmation(true)}>
+          Remove from box
+        </Button>
+      </Flex>
       <SplitFlex>
         <div>
           <h2>{recipe.title}</h2>
@@ -90,6 +125,24 @@ export default () => {
         </div>
       </SplitFlex>
       <Instructions steps={recipe.steps} />
+      <Modal opened={showRemoveConfirmation} onClose={() => setShowRemoveConfirmation(false)}>
+        <Text mb={20}>
+          Remove <strong>{recipe.title}</strong> from your box permanently?
+        </Text>
+        <Flex justify="end">
+          <Button
+            color="red"
+            loading={removalLoading}
+            onClick={() =>
+              removeFromBox({
+                variables: { id },
+              })
+            }
+          >
+            Remove
+          </Button>
+        </Flex>
+      </Modal>
     </>
   );
 };

@@ -2,6 +2,8 @@ import { ReactNode } from 'react';
 import { DEFAULT_THEME, MantineProvider, createTheme, mergeMantineTheme } from '@mantine/core';
 
 import '@mantine/core/styles.css';
+import '@mantine/notifications/styles.css';
+import { Notifications } from '@mantine/notifications';
 
 const themeOverride = createTheme({
   colors: {
@@ -23,7 +25,10 @@ const themeOverride = createTheme({
 const theme = mergeMantineTheme(DEFAULT_THEME, themeOverride);
 
 const MantineThemeProvider = ({ children }: { children: ReactNode }) => (
-  <MantineProvider theme={theme}>{children}</MantineProvider>
+  <MantineProvider theme={theme}>
+    <Notifications />
+    {children}
+  </MantineProvider>
 );
 
 export default MantineThemeProvider;

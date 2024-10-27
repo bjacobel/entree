@@ -7,6 +7,7 @@
     "@mantine/core": "^7.12.2",
     "@mantine/form": "^7.13.2",
     "@mantine/hooks": "^7.12.2",
+    "@mantine/notifications": "^7.13.4",
     "@micro-sentry/breadcrumbs-plugin": "^1.0.2",
     "@micro-sentry/browser": "^7.0.5",
     "@sindresorhus/slugify": "^2.2.1",
