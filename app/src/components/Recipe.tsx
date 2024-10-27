@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { useMutation, useSuspenseQuery } from '@apollo/client';
 import { useLocation, useParams } from 'wouter';
-import { Image, Breadcrumbs, Text, Button, Flex, Modal } from '@mantine/core';
+import { Image, Breadcrumbs, Text, Button, Flex, Modal, Menu } from '@mantine/core';
 import { notifications } from '@mantine/notifications';
 import { styled } from '@linaria/react';
 
@@ -109,9 +109,18 @@ export default () => {
           <StyledLink to="/box">Recipe box</StyledLink>
           <Text>Recipe</Text>
         </Breadcrumbs>
-        <Button variant="transparent" color="red" px={0} onClick={() => setShowRemoveConfirmation(true)}>
-          Remove from box
-        </Button>
+        <Menu position="bottom-end" withArrow>
+          <Menu.Target>
+            <Button variant="light">Manage</Button>
+          </Menu.Target>
+          <Menu.Dropdown>
+            <Menu.Item>Edit recipe</Menu.Item>
+            <Menu.Divider />
+            <Menu.Item color="red" onClick={() => setShowRemoveConfirmation(true)}>
+              Remove from box
+            </Menu.Item>
+          </Menu.Dropdown>
+        </Menu>
       </Flex>
       <SplitFlex>
         <div>

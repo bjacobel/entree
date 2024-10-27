@@ -120,8 +120,8 @@ export default (env: Record<string, unknown> = {}, { mode }: { mode?: string } =
         inject: true,
       }),
       new WebpackPwaManifest({
-        name: 'Entreé',
-        short_name: 'Entreé',
+        name: 'Entrée',
+        short_name: 'Entrée',
         theme_color: '#ffffff',
         background_color: '#ffffff',
         display: 'standalone',
