@@ -1,9 +1,9 @@
 import { ReactNode } from 'react';
 import { DEFAULT_THEME, MantineProvider, createTheme, mergeMantineTheme } from '@mantine/core';
+import { Notifications } from '@mantine/notifications';
 
 import '@mantine/core/styles.css';
 import '@mantine/notifications/styles.css';
-import { Notifications } from '@mantine/notifications';
 
 const themeOverride = createTheme({
   colors: {
